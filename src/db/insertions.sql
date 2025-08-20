@@ -1,4 +1,4 @@
--- Roles preestablecidos
+-- Default roles
 INSERT INTO
     roles (role_name)
 VALUES
@@ -7,55 +7,55 @@ VALUES
     ('validator'),
     ('admin');
 
--- Usuarios
+-- Users
 INSERT INTO
     users (username, email, phone, password_hash)
 VALUES
     (
         'Juan Perez',
-        'juan.perez@email.com',
+        'juanperez@email.com',
         '5551234567',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
         'Maria Gomez',
-        'maria.gomez@email.com',
+        'mariagomez@email.com',
         '5552345678',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
         'Carlos Lopez',
-        'carlos.lopez@email.com',
+        'carloslopez@email.com',
         '5553456789',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$4f1WJ24/m719ndKko6Gc8ex4/seC9QDI9/X/CHm.sReBLaE0uizT6'
     ),
     (
         'Ana Martinez',
-        'ana.martinez@email.com',
+        'anamartinez@email.com',
         '5554567890',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
         'Luis Rodriguez',
-        'luis.rodriguez@email.com',
+        'luisrodriguez@email.com',
         '5555678901',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
         'Sofia Hernandez',
-        'sofia.hernandez@email.com',
+        'sofiahernandez@email.com',
         '5556789012',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
         'Pedro Garcia',
-        'pedro.garcia@email.com',
+        'pedrogarcia@email.com',
         '5557890123',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
         'Laura Diaz',
-        'laura.diaz@email.com',
+        'lauradiaz@email.com',
         '5558901234',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
@@ -67,105 +67,105 @@ VALUES
     ),
     (
         'Elena Ruiz',
-        'elena.ruiz@email.com',
+        'elenaruiz@email.com',
         '5550123456',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
-        'admin',
-        'admin@gmail.com',
+        'admin1',
+        'admin1@gmail.com',
         '5551111111',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$4f1WJ24/m719ndKko6Gc8ex4/seC9QDI9/X/CHm.sReBLaE0uizT6'
     ),
     (
-        'Admin Dos',
+        'Admin2',
         'admin2@gmail.com',
         '5551111112',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
-        'Admin Tres',
+        'Admin3',
         'admin3@gmail.com',
         '5551111113',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
-        'Validator One',
-        'validator@gmail.com',
+        'Validator1',
+        'validator1@gmail.com',
         '5552222221',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$4f1WJ24/m719ndKko6Gc8ex4/seC9QDI9/X/CHm.sReBLaE0uizT6'
     ),
     (
-        'Validator Dos',
+        'Validator2',
         'validator2@gmail.com',
         '5552222222',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
-        'Validator Tres',
+        'Validator3',
         'validator3@gmail.com',
         '5552222223',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
         'Juan Romero',
-        'juan.romero@gmail.com',
+        'juanromero@gmail.com',
         '5553330001',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
         'Patricia Mena',
-        'patricia.mena@gmail.com',
+        'patriciamena@gmail.com',
         '5553330002',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
         'Carlos Martín',
-        'carlos.martin@gmail.com',
+        'carlosmartin@gmail.com',
         '5553330003',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
         'Elizabeth Soto',
-        'elizabeth.soto@gmail.com',
+        'elizabethsoto@gmail.com',
         '5553330004',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
         'Ricardo Vega',
-        'ricardo.vega@gmail.com',
+        'ricardovega@gmail.com',
         '5553330005',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
         'Melissa Ramírez',
-        'melissa.ramirez@gmail.com',
+        'melissaramirez@gmail.com',
         '5553330006',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
         'Diego López',
-        'diego.lopez@gmail.com',
+        'diegolopez@gmail.com',
         '5553330007',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
         'Yara Pérez',
-        'yara.perez@gmail.com',
+        'yaraperez@gmail.com',
         '5553330008',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
         'Tomás Suárez',
-        'tomas.suarez@gmail.com',
+        'tomassuarez@gmail.com',
         '5553330009',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
-        'reporter',
-        'reporter@gmail.com',
+        'reporter1',
+        'reporter1@gmail.com',
         '5553340100',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$4f1WJ24/m719ndKko6Gc8ex4/seC9QDI9/X/CHm.sReBLaE0uizT6'
     ),
     (
         'reporter2',
@@ -174,25 +174,25 @@ VALUES
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
-        'Carlos Reportero',
-        'carlos.reportero@gmail.com',
+        'Carlos Reporter',
+        'carlosreporter@gmail.com',
         '5553340102',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
-        'Ana Reportera',
-        'ana.reportera@gmail.com',
+        'Ana Reporter',
+        'anareporter@gmail.com',
         '5553340103',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     ),
     (
         'Mariana López',
-        'mariana.lopez@gmail.com',
+        'marianalopez@gmail.com',
         '5553340104',
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     );
 
--- Roles de usuarios
+-- Users-Roles m:n relationship
 INSERT INTO
     user_roles (user_id, role_id)
 VALUES
@@ -227,7 +227,7 @@ VALUES
     (29, 2),
     (30, 2);
 
--- Provincias
+-- DR provinces
 INSERT INTO
     provinces (province_name)
 VALUES
@@ -264,7 +264,7 @@ VALUES
     ('Santo Domingo'),
     ('Valverde');
 
--- Municipios
+-- DR municipalities
 INSERT INTO
     municipalities (municipality_name, province_id)
 VALUES
@@ -424,7 +424,7 @@ VALUES
     ('Esperanza', 32),
     ('Laguna Salada', 32);
 
--- Barrios
+-- DR neighborhoods
 INSERT INTO
     neighborhoods (neighborhood_name, municipality_id)
 VALUES
@@ -671,7 +671,7 @@ VALUES
     ('Los Cacicazgos', 1),
     ('Malecon', 1);
 
--- Incidencias
+-- Incidents
 INSERT INTO
     incidents (
         title,
@@ -1290,7 +1290,7 @@ VALUES
         30
     );
 
--- Etiquetas
+-- Incidents labels
 INSERT INTO
     labels (label_name, icon_url)
 VALUES
@@ -1335,7 +1335,7 @@ VALUES
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbDORXSxKNqtCRsMmuJu1w_zC3j5LVRAxHOw&s'
     );
 
--- Etiquetas de incidencias
+-- Incidents-Labels m:n relationship
 INSERT INTO
     incidence_labels (incidence_id, label_id)
 VALUES
@@ -1385,7 +1385,7 @@ VALUES
     (36, 10),
     (37, 10);
 
--- fotos
+-- Incidents photos
 INSERT INTO
     photos (incidence_id, photo_url)
 VALUES
@@ -1619,7 +1619,7 @@ VALUES
         'https://www.24horas.cl/24horas/site/artic/20240803/imag/foto_0000000720240803235719/Manifestaciones.jpg'
     );
 
--- Comentarios
+-- Comments
 INSERT INTO
     comments (incidence_id, user_id, comment_text)
 VALUES
@@ -1752,7 +1752,7 @@ VALUES
         'Protección Civil iniciará evaluación de daños y plan de recuperación.'
     );
 
--- Correcciones
+-- Corrections
 INSERT INTO
     corrections (
         incidence_id,
