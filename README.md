@@ -43,8 +43,8 @@ A PHP web application for reporting, managing, and visualizing real-world incide
 1. Clone the repository and move to the `src/` folder:
 
 ```bash
-git clone https://github.com/RonielSabala/IncidenciasRD.git
-cd IncidenciasRD/src
+git clone <repo-url>
+cd <repo-folder>
 ```
 
 2. Install required packages (run from the `src/` directory):
