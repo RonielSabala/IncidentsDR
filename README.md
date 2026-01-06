@@ -1,118 +1,53 @@
-# Incidencias RD
+# IncidenciasRD
 
-### Proyecto final de Programación Web
-
-- Integrantes
-
-> **Roniel Antonio Sabala Germán**  
->  Matrícula: `20240212`
->
-> **Jeremy Reyes González**  
->  Matrícula: `20240224`
->
-> **Abel Eduardo Martínez Robles**  
->  Matrícula: `20240227`
+A PHP web application for reporting, managing, and visualizing real-world incidents on an interactive map. The project demonstrates user authentication, geospatial reporting, and email notifications.
 
 ---
 
-# Instrucciones para ejecutar el proyecto
+## Table of Contents
 
-_Requisitos_:
+* [Features](#features)
+* [Requirements](#requirements)
+* [Quick Installation](#quick-installation)
+* [`.env` Configuration](#env-configuration)
+* [Database Setup](#database-setup)
+* [Run Locally](#run-locally)
+* [External Authentication (Google / Microsoft)](#external-authentication-google--microsoft)
+* [Email Notifications (optional)](#email-notifications-optional)
+* [Troubleshooting](#troubleshooting)
+* [Contributing](#contributing)
+* [Authors](#authors)
+* [License](#license)
 
-- MySQL
-- PHP 7.4+
-- Composer
+---
 
-## **1.** Creación del .env
+## Features
 
-Crea un archivo `.env` en la carpeta `src/config` con las siguientes variables.
+* User registration and authentication (including Google and Microsoft sign-in).
+* Report incidents with geolocation and view them on an interactive map.
+* Basic incident management: create, edit, delete, and list incidents.
+* Simple local deployment using the built-in PHP development server.
 
-- **Nota**: Las variables de los pasos **opcionales** pueden estar vacias pero deben de estar creadas.
+---
 
-### **1.1.** Credenciales para la base de datos
+## Requirements
 
-```
-HOST='TU_HOST'
-USER='TU_USUARIO'
-PASS='TU_CONTRASEÑA'
-```
+* PHP 7.4 or newer
+* MySQL
+* Composer
 
-### **1.2.** Credenciales para el envio de correos (Opcional)
+---
 
-```
-MAIL_USER='TU_EMAIL_DE_GOOGLE'
-MAIL_PASS='TU_CONTRASEÑA_DE_APLICACIÓN'
-```
+## Quick Installation
 
-Para obtener `MAIL_PASS` haz lo siguiente:
-
-1. Ingresa a la [Configuración de seguridad de Google](https://myaccount.google.com/security).
-
-2. Activa la verificación en dos pasos de tu cuenta de google (la misma que pusiste en `MAIL_USER`).
-
-3. Ingresa a [Contraseñas de aplicaciones](https://myaccount.google.com/apppasswords).
-
-4. Escribe un nombre para crear una nueva contraseña específica para la app.
-
-5. Copia el código generado y ponlo en `MAIL_PASS`.
-
-### **1.3.** Credenciales para iniciar sesión con Google (Opcional)
-
-```
-GOOGLE_CLIENT_ID='TU_GOOGLE_CLIENT_ID'
-GOOGLE_CLIENT_SECRET='TU_GOOGLE_CLIENT_SECRET'
-```
-
-Para obtener las credenciales haz lo siguiente:
-
-1. Ve a [Google Cloud Console](https://console.cloud.google.com/).
-
-2. Inicia sesión o regístrate.
-
-3. Dirígete a **APIs & Services**, luego ve a **Credentials**.
-
-4. Crea un **OAuth Client ID** tipo Web application.
-
-5. Copia el siguiente callback y ponlo en donde dice `Redirect URI`.
-
-```
-http://localhost:1111/auth/GoogleCallbackController.php
-```
-
-6. Copia el `CLIENT_ID` y el `CLIENT_SECRET`.
-
-### **1.4.** Credenciales para iniciar sesión con Microsoft (Opcional)
-
-```
-MICROSOFT_CLIENT_ID='TU_MICROSOFT_CLIENT_ID'
-MICROSOFT_CLIENT_SECRET='TU_MICROSOFT_CLIENT_SECRET'
-```
-
-Para obtener las credenciales haz lo siguiente:
-
-1. Inicia sesión o regístrate en [Azure Portal](https://portal.azure.com/auth/login/).
-
-2. Ve a **Azure Active Directory**, luego ve a **App registrations** y registra una nueva app.
-
-3. Copia el siguiente callback y ponlo en donde dice `Redirect URI`.
-
-```
-http://localhost:1111/auth/MicrosoftCallbackController.php
-```
-
-4. Copia el `Application (client) ID` y el `Certificates & secrets`.
-
-## **2.** Creación de la base de datos
-
-Para ello, ejecuta el siguiente comando:
+1. Clone the repository and move to the `src/` folder:
 
 ```bash
-php src/db/install.php
+git clone https://github.com/RonielSabala/IncidenciasRD.git
+cd IncidenciasRD/src
 ```
 
-## **3.** Instalación de las librerías necesarias
-
-En la raíz del proyecto (`src/`), ejecuta los siguientes comandos:
+2. Install required packages (run from the `src/` directory):
 
 ```bash
 composer require google/apiclient
@@ -120,18 +55,136 @@ composer require league/oauth2-client
 composer require vlucas/phpdotenv
 ```
 
-## **4.** Ejecución
+---
 
-Para iniciar el servidor PHP, ejecuta:
+## `.env` Configuration
 
-```bash
-php -S localhost:1111 -t src/public
+Create a `.env` file at `src/config/.env` with the variables below. Optional variables may be left empty but must exist.
+
+### Database (required)
+
+```env
+HOST='YOUR_DB_HOST'
+USER='YOUR_DB_USER'
+PASS='YOUR_DB_PASSWORD'
 ```
 
-## **5.** Inicio de sesión
+### Email (optional)
 
-Regístrate o inicia sesión con **Google/Microsoft** para acceder al sistema.
+```env
+MAIL_USER='YOUR_GOOGLE_EMAIL'
+MAIL_PASS='YOUR_APP_PASSWORD'
+```
+
+**How to get `MAIL_PASS` (Google App Password):**
+
+1. Go to Google Account Security settings: [https://myaccount.google.com/security](https://myaccount.google.com/security)
+2. Enable 2-Step Verification for the account you will use in `MAIL_USER`.
+3. In "App passwords" generate a new app password and paste it into `MAIL_PASS`.
+
+### Google OAuth (optional)
+
+```env
+GOOGLE_CLIENT_ID='YOUR_GOOGLE_CLIENT_ID'
+GOOGLE_CLIENT_SECRET='YOUR_GOOGLE_CLIENT_SECRET'
+```
+
+**Suggested local Redirect URI:**
+
+```
+http://localhost:1111/auth/GoogleCallbackController.php
+```
+
+### Microsoft OAuth (optional)
+
+```env
+MICROSOFT_CLIENT_ID='YOUR_MICROSOFT_CLIENT_ID'
+MICROSOFT_CLIENT_SECRET='YOUR_MICROSOFT_CLIENT_SECRET'
+```
+
+**Suggested local Redirect URI:**
+
+```
+http://localhost:1111/auth/MicrosoftCallbackController.php
+```
 
 ---
 
-> ¡Listo, esos fueron todos los pasos!
+## Database Setup
+
+Run the installer script to create the required database tables:
+
+```bash
+php src/db/install.php
+```
+
+> Make sure your database credentials in `src/config/.env` are correct before running the installer.
+
+---
+
+## Run Locally
+
+Start the PHP development server from the `src/` folder:
+
+```bash
+php -S localhost:1111 -t public
+```
+
+Open your browser at `http://localhost:1111`.
+
+---
+
+## External Authentication (Google / Microsoft)
+
+### Google
+
+1. Open Google Cloud Console: [https://console.cloud.google.com/](https://console.cloud.google.com/)
+2. Go to **APIs & Services → Credentials** and create an **OAuth Client ID** (type: Web application).
+3. Add the Redirect URI shown above and copy the `CLIENT_ID` and `CLIENT_SECRET` into your `.env` file.
+
+### Microsoft (Azure)
+
+1. Open the Azure Portal: [https://portal.azure.com/](https://portal.azure.com/)
+2. Go to **Azure Active Directory → App registrations** and register a new application.
+3. Add the Redirect URI shown above, copy the `Application (client) ID`, and create a client secret under **Certificates & secrets**. Paste these values into the `.env` file.
+
+---
+
+## Email Notifications (optional)
+
+The app can send email notifications using a Gmail account and an app password. Ensure:
+
+* `MAIL_USER` and `MAIL_PASS` are set in `src/config/.env`.
+* Two-step verification is enabled on the Gmail account.
+
+---
+
+## Troubleshooting
+
+* **Database connection error**: Verify `HOST`, `USER`, and `PASS` in `src/config/.env` and confirm the MySQL server is running.
+* **OAuth redirect issues**: Ensure the Redirect URI in the OAuth provider settings matches exactly the one in your app.
+* **Email not sent**: Confirm the app password (`MAIL_PASS`) is correct and there are no account restrictions.
+
+---
+
+## Contributing
+
+Contributions are welcome. To contribute:
+
+1. Fork the repository.
+2. Create a feature branch: `feature/my-change`.
+3. Open a pull request describing your changes.
+
+---
+
+## Authors
+
+* Roniel Antonio Sabala Germán
+* Jeremy Reyes González
+* Abel Eduardo Martínez Robles
+
+---
+
+## License
+
+This project is released under the **MIT License**.
