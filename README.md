@@ -1,6 +1,6 @@
 # IncidentsDR
 
-A PHP web application that lets users report, manage, and visualize real-world incidents on an interactive map focused on the Dominican Republic. The system models the country’s administrative hierarchy (provinces → municipalities → neighborhoods/barrio), supports user authentication, geospatial queries, and email notifications.
+A PHP web application that lets users report, manage, and visualize real-world incidents on an interactive map focused on the Dominican Republic. The system models the country’s administrative hierarchy (provinces → municipalities → neighborhoods), supports user authentication, geospatial queries, and email notifications.
 
 ---
 
