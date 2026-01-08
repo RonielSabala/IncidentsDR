@@ -14,6 +14,7 @@ IncidentsDR is a web application built with PHP that lets users report, manage, 
 - [Run Locally](#run-locally)
 - [Email Notifications](#email-notifications)
 - [Roles & Permissions](#roles--permissions)
+- [Test Accounts](#test-accounts)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
 - [Authors](#authors)
@@ -118,7 +119,7 @@ MICROSOFT_CLIENT_SECRET='YOUR_MICROSOFT_CLIENT_SECRET'
 
 ## Database Setup
 
-Run the installer script to create the required database tables:
+Run the database installation script to create the necessary tables and sample data.
 
 ```bash
 # From src/
@@ -175,14 +176,28 @@ The system defines four roles, each with its own views and permissions:
 
 - All `default` permissions.
 - Redirected after login to a Validator dashboard.
-- Can review, approve, or reject unapproved incidents.
+- Can review and approve/reject unapproved incidents and incidents corrections.
 
 ### `admin`
 
 - Full system access.
+- Redirected after login to a Admin dashboard.
 - Can assign roles to users.
 - Can manage labels, provinces, municipalities, and neighborhoods.
 - Can manage all incidents and users.
+
+---
+
+## Test Accounts
+
+The system includes four sample users with different roles. All accounts share the same password **`123DR`**.
+
+```md
+carloslopez@email.com (default)
+reporter1@gmail.com (reporter)
+validator1@gmail.com (validator)
+admin1@gmail.com* (admin)
+```
 
 ---
 
