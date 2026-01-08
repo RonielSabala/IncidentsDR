@@ -1,69 +1,72 @@
 # IncidentsDR
 
-IncidentsDR is a web application built with PHP that lets users report, manage, and visualize real-world incidents of the Dominican Republic (DR) on an interactive map.
+IncidentsDR is a PHP web application that lets users report, manage, and visualize real-world incidents in the Dominican Republic on an interactive map.
 
 ---
 
 ## Table of Contents
 
-- [Features](#features)
-- [Requirements](#requirements)
-- [Quick Installation](#quick-installation)
-- [`.env` Configuration](#env-configuration)
-- [Database Setup](#database-setup)
-- [Run Locally](#run-locally)
-- [Email Notifications](#email-notifications)
-- [Roles & Permissions](#roles--permissions)
-- [Test Accounts](#test-accounts)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [Authors](#authors)
-- [License](#license)
+* [Features](#features)
+* [Requirements](#requirements)
+* [Quick Start](#quick-start)
+  * [Clone the repository](#clone-the-repository)
+  * [Install dependencies](#install-dependencies)
+  * [`.env` configuration](#env-configuration)
+  * [Database setup](#database-setup)
+  * [Run locally](#run-locally)
+* [Email notifications](#email-notifications)
+* [Roles & Permissions](#roles--permissions)
+* [Test accounts](#test-accounts)
+* [Troubleshooting](#troubleshooting)
+* [Contributing](#contributing)
+* [Authors](#authors)
+* [License](#license)
 
 ---
 
 ## Features
 
-- User registration and authentication with **Google**/**Microsoft**.
-- **Map**/**List** view with incidents displayed as icons based on their label name.
-- **Search bar** that filters results in both the Map and the List views.
-- **Last 24h** filter button to display incidents reported within the current day.
-- **Incident modal**: clicking an incident opens a modal with the incident data.
-- **Role-based dashboards** and views for reporters, validators, and administrators.
-- Models the administrative hierarchy of the DR (province → municipality → neighborhood).
-- Simple local deployment using the built-in PHP development server.
+* User registration and authentication (Google / Microsoft).
+* Map and list views showing incidents with label icons.
+* Search and filters.
+* Click-to-open incident modal with full details.
+* Role-based dashboards for reporters, validators, and administrators.
+* Administrative topology modeling (province → municipality → neighborhood).
+* Simple local deployment using PHP’s built-in development server.
 
 ---
 
 ## Requirements
 
-- MySQL
-- PHP 8 or newer
-- Composer
+* PHP 8.0 or newer
+* Composer
+* MySQL
 
 ---
 
-## Quick Installation
+## Quick Start
 
-1. Clone the repository:
+### Clone the repository
 
-    ```bash
-    git clone <repo-url>
-    cd <repo-folder>
-    ```
+```bash
+git clone <repo-url>
+cd <repo-folder>
+```
 
-2. Install required packages:
+### Install dependencies
 
-    ```bash
-    cd src
-    composer require google/apiclient league/oauth2-client vlucas/phpdotenv phpmailer/phpmailer
-    ```
+Use system terminal (recommended):
+
+```bash
+cd src
+composer require google/apiclient league/oauth2-client vlucas/phpdotenv phpmailer/phpmailer
+```
 
 ---
 
-## `.env` Configuration
+## `.env` configuration
 
-Add a `.env` file at `src/config/` with the variables below. Optional variables may be left empty but the keys should exist.
+Create a `.env` file at `src/config/.env`. Include all keys shown below, optional values may be left empty, but the keys should exist.
 
 ```env
 # Database (required)
@@ -77,136 +80,126 @@ MAIL_PASS='YOUR_APP_PASSWORD'
 
 # Google OAuth (optional)
 GOOGLE_CLIENT_ID='YOUR_GOOGLE_CLIENT_ID'
-GOOGLE_CLIENT_SECRET='YOUR_GOOGLE_CLIENT_SECRET
+GOOGLE_CLIENT_SECRET='YOUR_GOOGLE_CLIENT_SECRET'
 
 # Microsoft OAuth (optional)
 MICROSOFT_CLIENT_ID='YOUR_MICROSOFT_CLIENT_ID'
 MICROSOFT_CLIENT_SECRET='YOUR_MICROSOFT_CLIENT_SECRET'
 ```
 
-### How to get credentials
+### How to obtain credentials
 
-#### **Email**
+**Email (app password):**
 
-1. Go to [Google Account Security settings](https://myaccount.google.com/security) and enable 2-Step Verification on the Google account you will use for `MAIL_USER`.
-2. Go to [App Passwords](https://myaccount.google.com/apppasswords), generate an app password and paste it into `MAIL_PASS`.
+1. Enable 2-Step Verification for `MAIL_USER` at [https://myaccount.google.com/security](https://myaccount.google.com/security).
+2. Generate an App Password at [https://myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords) and paste it into `MAIL_PASS`.
 
-#### **Google OAuth**
+**Google OAuth:**
 
-1. Go to [Google Cloud Console](https://console.cloud.google.com/) and create/select a project.
-2. Go to **APIs & Services** > **Credentials** and create an **OAuth client ID**.
+1. Create or select a project in [Google Cloud Console](https://console.cloud.google.com/).
+2. Go to **APIs & Services** > **Credentials** and create **OAuth client ID**.
 3. Choose **Web application** as the Application type and add the authorized redirect URI:
 
     ```md
     http://localhost:1111/auth/GoogleController.php
     ```
 
-4. Paste `Client ID` & `Client secret` into the `.env` file.
+4. Copy **Client ID** and **Client secret** into `.env`.
 
-#### **Microsoft OAuth**
+**Microsoft OAuth:**
 
-1. Go to [Azure Portal](https://portal.azure.com/) > **Microsoft Entra ID** > **App registrations** and register a new application.
-2. Add the authorized redirect URI:
+1. Register an app in [Azure Portal](https://portal.azure.com/) > **Microsoft Entra ID** > **App registrations**.
+2. Add an authorized redirect URI:
 
     ```md
     http://localhost:1111/auth/MicrosoftCallbackController.php
     ```
 
-3. Copy the `Application (client) ID` and create a client secret under **Certificates & secrets**.
-4. Paste these values into the `.env` file.
+3. Copy **Application (client) ID**, create a client secret under **Certificates & secrets** and paste into `.env`.
 
 ---
 
-## Database Setup
+## Database setup
 
-Run the database installation script to create the necessary tables and sample data.
+From the `src` directory, run the DB install script:
 
 ```bash
-# From src/
 php db/install.php
 ```
 
+> This script will create required tables and sample data.
+
 ---
 
-## Run Locally
+## Run locally
 
-Start the PHP development server:
+Start the built-in PHP server from the `src` directory:
 
 ```bash
-# From src/
 php -S localhost:1111 -t public
 ```
 
-Open your browser at:
-`http://localhost:1111`
+Open your browser at: `http://localhost:1111`
 
 ---
 
-## Email Notifications
+## Email notifications
 
-Users can reset their password via **email verification code**:
-
-- A reset request sends a code to the registered email.
-- The user enters the code to set a new password.
-
-> Requires email variables in `.env`.
+* Password reset uses an email verification code flow.
+* Ensure `MAIL_USER` and `MAIL_PASS` are set in `.env` for email functionality.
 
 ---
 
 ## Roles & Permissions
 
-The system defines four roles, each with its own views and permissions:
+Four main roles exist in the system:
 
 ### `default`
 
-- Access to the main lobby.
-- Can view the Map and List pages.
-- Can open incident detail modals.
-- Can comment on incidents.
+* Access main lobby, Map and List pages.
+* Open incident detail modal.
+* Comment on incidents.
 
 ### `reporter`
 
-- All `default` permissions.
-- Redirected after login to a Reporter dashboard.
-- Can create incidents.
-- Can edit and delete **only their own unapproved incidents**.
-- Can view a list of their reported incidents.
+* All `default` permissions.
+* Reporter dashboard after login.
+* Create incidents and edit/delete their **unapproved** incidents.
+* View a list of their reported incidents.
 
 ### `validator`
 
-- All `default` permissions.
-- Redirected after login to a Validator dashboard.
-- Can review and approve/reject unapproved incidents and incidents corrections.
+* All `default` permissions.
+* Validator dashboard after login.
+* Review and approve/reject unapproved incidents and corrections.
 
 ### `admin`
 
-- Full system access.
-- Redirected after login to a Admin dashboard.
-- Can assign roles to users.
-- Can manage labels, provinces, municipalities, and neighborhoods.
-- Can manage all incidents and users.
+* Full access to the system.
+* Admin dashboard after login.
+* Assign roles, manage labels, provinces, municipalities, neighborhoods.
+* Manage all incidents and user accounts.
 
 ---
 
-## Test Accounts
+## Test accounts
 
-The system includes four sample users with different roles. All accounts share the same password **`123DR`**.
+Four sample users are included for testing. Password for all sample accounts: **`123DR`**
 
-```md
-carloslopez@email.com (default)
-reporter1@gmail.com (reporter)
-validator1@gmail.com (validator)
-admin1@gmail.com* (admin)
-```
+* [carloslopez@email.com](mailto:carloslopez@email.com) - `default`
+* [reporter1@gmail.com](mailto:reporter1@gmail.com) - `reporter`
+* [validator1@gmail.com](mailto:validator1@gmail.com) - `validator`
+* [admin1@gmail.com](mailto:admin1@gmail.com) - `admin`
 
 ---
 
 ## Troubleshooting
 
-- **Database connection error**: Verify `HOST`, `USER`, and `PASS` and ensure MySQL is running.
-- **SQL script errors**: Confirm `USER` has the corresponding permissions.
-- **OAuth redirect issues**: Confirm redirect URIs match exactly.
-- **Emails not sent**: Check app password configuration and account security settings.
+* **Database connection error:** Verify `HOST`, `USER`, `PASS` in `src/config/.env` and ensure MySQL is running and accepting connections.
+* **SQL script errors:** Confirm the DB user has the required privileges to create tables and insert data.
+* **OAuth redirect issues:** Confirm redirect URIs in the provider console match exactly.
+* **Emails not sent:** Verify that `MAIL_USER` and `MAIL_PASS` are correct and that the account’s security settings allow SMTP or app-password usage.
+* **Composer problems in VS Code terminal:** Use the system terminal (`cmd.exe`, Terminal.app, or your preferred shell).
 
 ---
 
@@ -216,15 +209,15 @@ Contributions are welcome. Suggested workflow:
 
 1. Fork the repository.
 2. Create a feature branch: `feature/my-change`.
-3. Commit changes and open a pull request describing the change and reason.
+3. Commit, push, and open a pull request describing the change and reason.
 
 ---
 
 ## Authors
 
-- Roniel Antonio Sabala Germán
-- Jeremy Reyes González
-- Abel Eduardo Martínez Robles
+* Roniel Antonio Sabala Germán
+* Jeremy Reyes González
+* Abel Eduardo Martínez Robles
 
 ---
 
