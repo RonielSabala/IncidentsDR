@@ -3,7 +3,7 @@ const BASE_PATH = __DIR__ . '/../';
 require_once BASE_PATH . 'vendor/autoload.php';
 require_once BASE_PATH . 'config/db.php';
 
-// Leer los scripts SQL
+// Leer scripts SQL
 $creationFile = __DIR__ . '/creation.sql';
 $insertionsFile = __DIR__ . '/insertions.sql';
 $creationSql = file_get_contents($creationFile);
@@ -18,7 +18,7 @@ if (!$insertionsSql) {
 }
 
 try {
-    // Crear las tablas
+    // Crear tablas
     $pdo = new PDO("mysql:host=$host", $user, $pass, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ]);
@@ -30,20 +30,20 @@ try {
         }
     }
 
-    // Insertar los datos
-
+    // Usar db
     if (!empty($db)) {
         $pdo->exec("USE `$db`;");
     }
 
+    // Insertar datos
     $insertStatements = array_filter(array_map('trim', explode(';', $insertionsSql)));
     foreach ($insertStatements as $stmt) {
         if (!empty($stmt)) {
             $pdo->exec($stmt);
         }
     }
-
-    echo "✔️  Base de datos creada correctamente.\n";
 } catch (PDOException $e) {
     die("Error de BD: " . $e->getMessage());
 }
+
+echo "✔️  Base de datos creada correctamente.\n";

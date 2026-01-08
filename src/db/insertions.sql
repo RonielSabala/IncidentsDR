@@ -1,4 +1,4 @@
--- Roles preestablecidos
+-- Default roles
 INSERT INTO
     roles (role_name)
 VALUES
@@ -7,7 +7,7 @@ VALUES
     ('validator'),
     ('admin');
 
--- Usuarios
+-- Users
 INSERT INTO
     users (username, email, phone, password_hash)
 VALUES
@@ -192,7 +192,7 @@ VALUES
         '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
     );
 
--- Roles de usuarios
+-- Users-Roles m:n relationship
 INSERT INTO
     user_roles (user_id, role_id)
 VALUES
@@ -227,7 +227,7 @@ VALUES
     (29, 2),
     (30, 2);
 
--- Provincias
+-- DR provinces
 INSERT INTO
     provinces (province_name)
 VALUES
@@ -264,7 +264,7 @@ VALUES
     ('Santo Domingo'),
     ('Valverde');
 
--- Municipios
+-- DR municipalities
 INSERT INTO
     municipalities (municipality_name, province_id)
 VALUES
@@ -424,7 +424,7 @@ VALUES
     ('Esperanza', 32),
     ('Laguna Salada', 32);
 
--- Barrios
+-- DR neighborhoods
 INSERT INTO
     neighborhoods (neighborhood_name, municipality_id)
 VALUES
@@ -671,7 +671,7 @@ VALUES
     ('Los Cacicazgos', 1),
     ('Malecon', 1);
 
--- Incidencias
+-- Incidents
 INSERT INTO
     incidents (
         title,
@@ -1290,7 +1290,7 @@ VALUES
         30
     );
 
--- Etiquetas
+-- Incidents labels
 INSERT INTO
     labels (label_name, icon_url)
 VALUES
@@ -1335,7 +1335,7 @@ VALUES
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbDORXSxKNqtCRsMmuJu1w_zC3j5LVRAxHOw&s'
     );
 
--- Etiquetas de incidencias
+-- Incidents-Labels m:n relationship
 INSERT INTO
     incidence_labels (incidence_id, label_id)
 VALUES
@@ -1385,7 +1385,7 @@ VALUES
     (36, 10),
     (37, 10);
 
--- fotos
+-- Incidents photos
 INSERT INTO
     photos (incidence_id, photo_url)
 VALUES
@@ -1619,7 +1619,7 @@ VALUES
         'https://www.24horas.cl/24horas/site/artic/20240803/imag/foto_0000000720240803235719/Manifestaciones.jpg'
     );
 
--- Comentarios
+-- Comments
 INSERT INTO
     comments (incidence_id, user_id, comment_text)
 VALUES
@@ -1752,7 +1752,7 @@ VALUES
         'Protección Civil iniciará evaluación de daños y plan de recuperación.'
     );
 
--- Correcciones
+-- Corrections
 INSERT INTO
     corrections (
         incidence_id,

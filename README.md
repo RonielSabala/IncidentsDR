@@ -1,6 +1,6 @@
 # IncidentsDR
 
-A PHP web application that lets users report, manage, and visualize real-world incidents of the Dominican Republic (DR) on an interactive map.
+IncidentsDR is a web application built with PHP that lets users report, manage, and visualize real-world incidents of the Dominican Republic (DR) on an interactive map.
 
 ---
 
@@ -23,21 +23,21 @@ A PHP web application that lets users report, manage, and visualize real-world i
 
 ## Features
 
-- User registration and authentication with **Google** / **Microsoft**.
-- **Map** / **list view** with incidents displayed as icons based on their label name.
+- User registration and authentication with **Google**/**Microsoft**.
+- **Map**/**List** view with incidents displayed as icons based on their label name.
 - **Search bar** that filters results in both the Map and the List views.
 - **Last 24h** filter button to display incidents reported within the current day.
-- Incident detail **modal**: clicking an incident opens a modal with the incidnet data.
+- **Incident modal**: clicking an incident opens a modal with the incident data.
 - **Role-based dashboards** and views for reporters, validators, and administrators.
-- Models the administrative hierarchy for the Dominican Republic (province → municipality → neighborhood).
+- Models the administrative hierarchy of the DR (province → municipality → neighborhood).
 - Simple local deployment using the built-in PHP development server.
 
 ---
 
 ## Requirements
 
-- PHP 8.4.7 or newer
 - MySQL
+- PHP 8 or newer
 - Composer
 
 ---
@@ -51,78 +51,68 @@ A PHP web application that lets users report, manage, and visualize real-world i
     cd <repo-folder>
     ```
 
-2. Install required packages (run from the `src/` directory):
+2. Install required packages:
 
     ```bash
-    composer require google/apiclient
-    composer require league/oauth2-client
-    composer require vlucas/phpdotenv
+    cd src
+    composer require google/apiclient league/oauth2-client vlucas/phpdotenv phpmailer/phpmailer
     ```
 
 ---
 
 ## `.env` Configuration
 
-Create a `.env` file at `src/config/.env` with the variables below. Optional variables may be left empty but must exist.
-
-### Database (required)
+Add a `.env` file at `src/config/` with the variables below. Optional variables may be left empty but the keys should exist.
 
 ```env
+# Database (required)
 HOST='YOUR_DB_HOST'
 USER='YOUR_DB_USER'
 PASS='YOUR_DB_PASSWORD'
-```
 
-### Email (optional)
-
-```env
+# Email (optional)
 MAIL_USER='YOUR_GOOGLE_EMAIL'
 MAIL_PASS='YOUR_APP_PASSWORD'
-```
 
-How to get `MAIL_PASS`:
-
-1. Go to Google Account Security settings: [https://myaccount.google.com/security](https://myaccount.google.com/security)
-2. Enable 2-Step Verification for the account you will use in `MAIL_USER`.
-3. Generate an App Password and copy it into `MAIL_PASS`.
-
-### Google OAuth (optional)
-
-```env
+# Google OAuth (optional)
 GOOGLE_CLIENT_ID='YOUR_GOOGLE_CLIENT_ID'
-GOOGLE_CLIENT_SECRET='YOUR_GOOGLE_CLIENT_SECRET'
-```
+GOOGLE_CLIENT_SECRET='YOUR_GOOGLE_CLIENT_SECRET
 
-- Redirect URI:
-
-```bash
-http://localhost:1111/auth/GoogleCallbackController.php
-```
-
-How to get your Google `CLIENT_ID` & `CLIENT_SECRET`:
-
-1. Open Google Cloud Console: [https://console.cloud.google.com/](https://console.cloud.google.com/)
-2. Go to **APIs & Services → Credentials** and create an **OAuth Client ID** (type: Web application).
-3. Add the Redirect URI shown above and copy the `CLIENT_ID` and `CLIENT_SECRET` into the `.env` file.
-
-### Microsoft OAuth (optional)
-
-```env
+# Microsoft OAuth (optional)
 MICROSOFT_CLIENT_ID='YOUR_MICROSOFT_CLIENT_ID'
 MICROSOFT_CLIENT_SECRET='YOUR_MICROSOFT_CLIENT_SECRET'
 ```
 
-- Redirect URI:
+### How to get credentials
 
-```md
-http://localhost:1111/auth/MicrosoftCallbackController.php
-```
+#### **Email**
 
-How to get your Microsoft `CLIENT_ID` & `CLIENT_SECRET`:
+1. Go to [Google Account Security settings](https://myaccount.google.com/security) and enable 2-Step Verification on the Google account you will use for `MAIL_USER`.
+2. Go to [App Passwords](https://myaccount.google.com/apppasswords), generate an app password and paste it into `MAIL_PASS`.
 
-1. Open the Azure Portal: [https://portal.azure.com/](https://portal.azure.com/)
-2. Go to **Azure Active Directory → App registrations** and register a new application.
-3. Add the Redirect URI shown above, copy the `Application (client) ID`, and create a client secret under **Certificates & secrets**. Paste these values into the `.env` file.
+#### **Google OAuth**
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/) and create/select a project.
+2. Go to **APIs & Services** > **Credentials** and create an **OAuth client ID**.
+3. Choose **Web application** as the Application type and add the authorized redirect URI:
+
+    ```md
+    http://localhost:1111/auth/GoogleController.php
+    ```
+
+4. Paste `Client ID` & `Client secret` into the `.env` file.
+
+#### **Microsoft OAuth**
+
+1. Go to [Azure Portal](https://portal.azure.com/) > **Microsoft Entra ID** > **App registrations** and register a new application.
+2. Add the authorized redirect URI:
+
+    ```md
+    http://localhost:1111/auth/MicrosoftCallbackController.php
+    ```
+
+3. Copy the `Application (client) ID` and create a client secret under **Certificates & secrets**.
+4. Paste these values into the `.env` file.
 
 ---
 
@@ -131,18 +121,18 @@ How to get your Microsoft `CLIENT_ID` & `CLIENT_SECRET`:
 Run the installer script to create the required database tables:
 
 ```bash
-# From the repository root:
-php src/db/install.php
+# From src/
+php db/install.php
 ```
 
 ---
 
 ## Run Locally
 
-Start the PHP development server from the `src/` folder:
+Start the PHP development server:
 
 ```bash
-cd src
+# From src/
 php -S localhost:1111 -t public
 ```
 
@@ -158,7 +148,7 @@ Users can reset their password via **email verification code**:
 - A reset request sends a code to the registered email.
 - The user enters the code to set a new password.
 
-> Requires email configuration (`MAIL_USER` and `MAIL_PASS`) in `.env`.
+> Requires email variables in `.env`.
 
 ---
 
@@ -179,7 +169,7 @@ The system defines four roles, each with its own views and permissions:
 - Redirected after login to a Reporter dashboard.
 - Can create incidents.
 - Can edit and delete **only their own unapproved incidents**.
-- Can view a CRUD list of their reported incidents.
+- Can view a list of their reported incidents.
 
 ### `validator`
 
@@ -199,8 +189,8 @@ The system defines four roles, each with its own views and permissions:
 ## Troubleshooting
 
 - **Database connection error**: Verify `HOST`, `USER`, and `PASS` and ensure MySQL is running.
-- **SQL script errors**: Confirm the DB user has permission to create databases and tables.
-- **OAuth redirect issues**: Redirect URIs must match exactly.
+- **SQL script errors**: Confirm `USER` has the corresponding permissions.
+- **OAuth redirect issues**: Confirm redirect URIs match exactly.
 - **Emails not sent**: Check app password configuration and account security settings.
 
 ---
