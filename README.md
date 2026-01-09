@@ -32,7 +32,7 @@ IncidentsDR is a PHP web application that lets users report, manage, and visuali
 * Click-to-open incident modal with full details.
 * Role-based dashboards for reporters, validators, and administrators.
 * Administrative topology modeling (province → municipality → neighborhood).
-* Simple local deployment using PHP’s built-in development server.
+* Simple local deployment using PHP's built-in development server.
 
 ---
 
@@ -66,7 +66,7 @@ composer require google/apiclient league/oauth2-client vlucas/phpdotenv phpmaile
 
 ## `.env` configuration
 
-Create a `.env` file at `src/config/.env`. Include all keys shown below, optional values may be left empty, but the keys should exist.
+Create a `.env` file at `src/config/.env`, include all keys shown below. Optional values may be left empty, but the keys should exist.
 
 ```env
 # Database (required)
@@ -159,6 +159,7 @@ Four main roles exist in the system:
 * Access main lobby, Map and List pages.
 * Open incident detail modal.
 * Comment on incidents.
+* Suggest corrections for incidents.
 
 ### `reporter`
 
@@ -186,10 +187,10 @@ Four main roles exist in the system:
 
 Four sample users are included for testing. Password for all sample accounts: **`123DR`**
 
-* [carloslopez@email.com](mailto:carloslopez@email.com) - `default`
-* [reporter1@gmail.com](mailto:reporter1@gmail.com) - `reporter`
-* [validator1@gmail.com](mailto:validator1@gmail.com) - `validator`
-* [admin1@gmail.com](mailto:admin1@gmail.com) - `admin`
+* [carloslopez@email.com](mailto:carloslopez@email.com) (`default`)
+* [reporter1@gmail.com](mailto:reporter1@gmail.com) (`reporter`)
+* [validator1@gmail.com](mailto:validator1@gmail.com) (`validator`)
+* [admin1@gmail.com](mailto:admin1@gmail.com) (`admin`)
 
 ---
 
@@ -198,7 +199,7 @@ Four sample users are included for testing. Password for all sample accounts: **
 * **Database connection error:** Verify `HOST`, `USER`, `PASS` in `src/config/.env` and ensure MySQL is running and accepting connections.
 * **SQL script errors:** Confirm the DB user has the required privileges to create tables and insert data.
 * **OAuth redirect issues:** Confirm redirect URIs in the provider console match exactly.
-* **Emails not sent:** Verify that `MAIL_USER` and `MAIL_PASS` are correct and that the account’s security settings allow SMTP or app-password usage.
+* **Emails not sent:** Verify that `MAIL_USER` and `MAIL_PASS` are correct and that the account's security settings allow SMTP or app-password usage.
 * **Composer problems in VS Code terminal:** Use the system terminal (`cmd.exe`, Terminal.app, or your preferred shell).
 
 ---
