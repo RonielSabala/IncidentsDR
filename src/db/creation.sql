@@ -4,7 +4,7 @@ CREATE DATABASE incidents_db;
 
 USE incidents_db;
 
--- Usuarios
+-- Users
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE
@@ -26,7 +26,7 @@ CREATE TABLE
         role_name ENUM ('default', 'reporter', 'validator', 'admin') NOT NULL
     );
 
--- Relación m:n Usuarios–Roles
+-- Users-Roles m:n relationship
 DROP TABLE IF EXISTS user_roles;
 
 CREATE TABLE
@@ -38,7 +38,7 @@ CREATE TABLE
         FOREIGN KEY (role_id) REFERENCES roles (id) ON DELETE CASCADE
     );
 
--- Provincias
+-- Provinces
 DROP TABLE IF EXISTS provinces;
 
 CREATE TABLE
@@ -47,7 +47,7 @@ CREATE TABLE
         province_name VARCHAR(35) NOT NULL UNIQUE
     );
 
--- Municipios
+-- Municipalities
 DROP TABLE IF EXISTS municipalities;
 
 CREATE TABLE
@@ -58,7 +58,7 @@ CREATE TABLE
         FOREIGN KEY (province_id) REFERENCES provinces (id) ON DELETE CASCADE
     );
 
--- Barrios
+-- Neighborhoods
 DROP TABLE IF EXISTS neighborhoods;
 
 CREATE TABLE
@@ -70,7 +70,7 @@ CREATE TABLE
         FOREIGN KEY (municipality_id) REFERENCES municipalities (id) ON DELETE CASCADE
     );
 
--- Incidencias
+-- Incidents
 DROP TABLE IF EXISTS incidents;
 
 CREATE TABLE
@@ -96,7 +96,7 @@ CREATE TABLE
         FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
     );
 
--- Fotos de incidencias
+-- Incidents photos
 DROP TABLE IF EXISTS photos;
 
 CREATE TABLE
@@ -107,7 +107,7 @@ CREATE TABLE
         FOREIGN KEY (incidence_id) REFERENCES incidents (id) ON DELETE CASCADE
     );
 
--- Etiquetas de incidencias
+-- Incidents labels
 DROP TABLE IF EXISTS labels;
 
 CREATE TABLE
@@ -117,7 +117,7 @@ CREATE TABLE
         icon_url VARCHAR(255) NOT NULL
     );
 
--- Relación m:n Incidencias-Etiquetas
+-- Incidents-Labels m:n relationship
 DROP TABLE IF EXISTS incidence_labels;
 
 CREATE TABLE
@@ -129,7 +129,7 @@ CREATE TABLE
         FOREIGN KEY (label_id) REFERENCES labels (id) ON DELETE CASCADE
     );
 
--- Comentarios
+-- Comments
 DROP TABLE IF EXISTS comments;
 
 CREATE TABLE
@@ -143,7 +143,7 @@ CREATE TABLE
         FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
     );
 
--- Correcciones
+-- Corrections
 DROP TABLE IF EXISTS corrections;
 
 CREATE TABLE
