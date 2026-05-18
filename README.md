@@ -203,7 +203,10 @@ Four roles exist in the system:
 - Validator dashboard after login.
 - Review and approve or reject unapproved incidents and corrections.
 
-![Validator view](docs/screenshots/validator_view.jpg)
+| Feature                       | View                                                                 |
+| ----------------------------- | -------------------------------------------------------------------- |
+| Validate incidents            | ![Validator incidents](docs/screenshots/validator_incidents.jpg)     |
+| Validate incident corrections | ![Validator corrections](docs/screenshots/validator_corrections.jpg) |
 
 ### `admin` <!-- omit in toc -->
 
