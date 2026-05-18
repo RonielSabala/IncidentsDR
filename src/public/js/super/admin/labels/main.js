@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   let dt;
+
   function scheduleUpdate() {
     clearTimeout(dt);
     dt = setTimeout(updatePreview, 250);

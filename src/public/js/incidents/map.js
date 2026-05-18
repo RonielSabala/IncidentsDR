@@ -40,7 +40,10 @@ $(document).ready(() => {
       }
     });
 
-    observer.observe(target, { childList: true, subtree: true });
+    observer.observe(target, {
+      childList: true,
+      subtree: true
+    });
   }
 
   if (document.readyState === "loading") {
@@ -96,7 +99,9 @@ function initMap() {
   L.DomEvent.disableClickPropagation(overlay);
   L.DomEvent.disableScrollPropagation(overlay);
 
-  mapInstance = L.map("incidents-map", { zoomControl: false }).setView(
+  mapInstance = L.map("incidents-map", {
+    zoomControl: false
+  }).setView(
     [defaultLat, defaultLng],
     defaultZoom
   );
@@ -109,7 +114,10 @@ function initMap() {
 }
 
 function onMapClick(e) {
-  const { lat, lng } = e.latlng;
+  const {
+    lat,
+    lng
+  } = e.latlng;
   const coordsText = `(${lat.toFixed(6)}, ${lng.toFixed(6)})`;
   const html = `
     <div id="coords-popup" class="d-flex align-items-center gap-2">
