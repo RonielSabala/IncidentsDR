@@ -208,7 +208,8 @@ Four roles exist in the system:
 
 ### `admin` <!-- omit in toc -->
 
-- Full access to the system.
+Full access to the system:
+
 - Admin dashboard after login.
 - Assign roles, manage labels, provinces, municipalities, and neighborhoods.
 - Manage all incidents, user accounts, and comments.
