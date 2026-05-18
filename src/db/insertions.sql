@@ -15,181 +15,181 @@ VALUES
         'Juan Perez',
         'juanperez@email.com',
         '5551234567',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Maria Gomez',
         'mariagomez@email.com',
         '5552345678',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Carlos Lopez',
         'carloslopez@email.com',
         '5553456789',
-        '$2y$12$4f1WJ24/m719ndKko6Gc8ex4/seC9QDI9/X/CHm.sReBLaE0uizT6'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Ana Martinez',
         'anamartinez@email.com',
         '5554567890',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Luis Rodriguez',
         'luisrodriguez@email.com',
         '5555678901',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Sofia Hernandez',
         'sofiahernandez@email.com',
         '5556789012',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Pedro Garcia',
         'pedrogarcia@email.com',
         '5557890123',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Laura Diaz',
         'lauradiaz@email.com',
         '5558901234',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Jorge Sanchez',
         'jorge.sanchez@email.com',
         '5559012345',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Elena Ruiz',
         'elenaruiz@email.com',
         '5550123456',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'admin1',
         'admin1@gmail.com',
         '5551111111',
-        '$2y$12$4f1WJ24/m719ndKko6Gc8ex4/seC9QDI9/X/CHm.sReBLaE0uizT6'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Admin2',
         'admin2@gmail.com',
         '5551111112',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Admin3',
         'admin3@gmail.com',
         '5551111113',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Validator1',
         'validator1@gmail.com',
         '5552222221',
-        '$2y$12$4f1WJ24/m719ndKko6Gc8ex4/seC9QDI9/X/CHm.sReBLaE0uizT6'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Validator2',
         'validator2@gmail.com',
         '5552222222',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Validator3',
         'validator3@gmail.com',
         '5552222223',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Juan Romero',
         'juanromero@gmail.com',
         '5553330001',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Patricia Mena',
         'patriciamena@gmail.com',
         '5553330002',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Carlos Martín',
         'carlosmartin@gmail.com',
         '5553330003',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Elizabeth Soto',
         'elizabethsoto@gmail.com',
         '5553330004',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Ricardo Vega',
         'ricardovega@gmail.com',
         '5553330005',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Melissa Ramírez',
         'melissaramirez@gmail.com',
         '5553330006',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Diego López',
         'diegolopez@gmail.com',
         '5553330007',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Yara Pérez',
         'yaraperez@gmail.com',
         '5553330008',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Tomás Suárez',
         'tomassuarez@gmail.com',
         '5553330009',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'reporter1',
         'reporter1@gmail.com',
         '5553340100',
-        '$2y$12$4f1WJ24/m719ndKko6Gc8ex4/seC9QDI9/X/CHm.sReBLaE0uizT6'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'reporter2',
         'reporter2@gmail.com',
         '5553340101',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Carlos Reporter',
         'carlosreporter@gmail.com',
         '5553340102',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Ana Reporter',
         'anareporter@gmail.com',
         '5553340103',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     ),
     (
         'Mariana López',
         'marianalopez@gmail.com',
         '5553340104',
-        '$2y$10$Hhid4w2e2ZQ7SA3uVQxrE.7XlWcB7kUfJWJWfJQmYJZzYdLQ5Q5Oq'
+        '$2y$12$Y.Gex33965vd9/cqaB8CbOJbzeusn4BHEJADGFznGjTOopC5O8PUK'
     );
 
 -- Users-Roles m:n relationship

@@ -225,7 +225,7 @@ Full access to the system:
 
 ## Test Accounts
 
-Four sample accounts are included for testing. Password for all: `123DR`
+Four sample accounts are included for testing. Password for all: `app12345`
 
 | Email                                                 | Role        |
 | ----------------------------------------------------- | ----------- |
