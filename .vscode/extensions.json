@@ -5,6 +5,7 @@
     "davidanson.vscode-markdownlint",
     "devsense.composer-php-vscode",
     "inferrinizzard.prettier-sql-vscode",
+    "junstyle.php-cs-fixer",
     "mehedidracula.php-namespace-resolver",
     "neilbrayfield.php-docblocker",
     "st-pham.php-refactor-tool",
