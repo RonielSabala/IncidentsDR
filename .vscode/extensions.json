@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+    "bmewburn.vscode-intelephense-client",
+    "brapifra.phpserver",
+    "davidanson.vscode-markdownlint",
+    "devsense.composer-php-vscode",
+    "inferrinizzard.prettier-sql-vscode",
+    "junstyle.php-cs-fixer",
+    "mehedidracula.php-namespace-resolver",
+    "neilbrayfield.php-docblocker",
+    "st-pham.php-refactor-tool",
+    "streetsidesoftware.code-spell-checker",
+    "tarik02.php-imports",
+    "yzhang.markdown-all-in-one"
+  ]
+}
