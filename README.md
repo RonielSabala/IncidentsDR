@@ -163,7 +163,7 @@ From the **repo root**:
 php -S localhost:1111 -t src/public
 ```
 
-Use `Ctrl+C` to stop.
+Access at `http://localhost:1111`. Use `Ctrl+C` to stop.
 
 ---
 
