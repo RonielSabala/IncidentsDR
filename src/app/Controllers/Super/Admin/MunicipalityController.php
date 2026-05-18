@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers\Super\Admin;
 
 use App\Core\Template;
-use App\Utils\GeneralUtils;
-use App\Utils\Entities\{MunicipalityUtils, ProvinceUtils};
+use App\Utils\{Entities\MunicipalityUtils, Entities\ProvinceUtils, GeneralUtils};
 
 class MunicipalityController
 {

@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers\Super\Admin;
 
 use App\Core\Template;
-use App\Utils\GeneralUtils;
-use App\Utils\Entities\ProvinceUtils;
+use App\Utils\{Entities\ProvinceUtils, GeneralUtils};
 
 class ProvinceController
 {
