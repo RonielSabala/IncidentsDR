@@ -1,16 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Auth;
 
 use App\Core\Template;
-use App\Utils\OAuthUtils;
-use App\Utils\GeneralUtils;
-use \League\OAuth2\Client\Provider\Exception\IdentityProviderException;
-
+use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
+use App\Utils\{GeneralUtils, OAuthUtils};
 
 class MicrosoftCallbackController
 {
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
         $oauthClient = OAuthUtils::getMicrosoftClient();
 
@@ -32,7 +32,7 @@ class MicrosoftCallbackController
         try {
             // Obtener los datos del usuario
             $accessToken = $oauthClient->getAccessToken('authorization_code', [
-                'code' => $_GET['code']
+                'code' => $_GET['code'],
             ]);
 
             $request = $oauthClient->getAuthenticatedRequest(
@@ -42,12 +42,12 @@ class MicrosoftCallbackController
             );
 
             $response = $oauthClient->getResponse($request);
-            $userMetadata = json_decode((string)$response->getBody(), true);
+            $userMetadata = json_decode((string) $response->getBody(), true);
 
             // Guardar sesión y hacer login
             $_SESSION['user'] = [
                 'username' => $userMetadata['displayName'],
-                'email' => $userMetadata['userPrincipalName']
+                'email' => $userMetadata['userPrincipalName'],
             ];
 
             LoginController::logUser();

@@ -28,11 +28,11 @@
 
                 <div class="stat-row">
                     <div>
-                        <div class="stat-number"><?= $incidentsCount ?></div>
+                        <div class="stat-number"><?= $incidentsCount; ?></div>
                         <div class="muted" style="font-weight:600;">incidencias totales</div>
                     </div>
                     <div style="text-align:right;">
-                        <small class="muted">Pendientes: <strong><?= $pendingIncidentsCount ?></strong></small>
+                        <small class="muted">Pendientes: <strong><?= $pendingIncidentsCount; ?></strong></small>
                     </div>
                 </div>
 
@@ -52,11 +52,11 @@
 
                 <div class="stat-row">
                     <div>
-                        <div class="stat-number"><?= $recentIncidentsCount ?></div>
+                        <div class="stat-number"><?= $recentIncidentsCount; ?></div>
                         <div class="muted" style="font-weight:600;">incidencias recientes (24h)</div>
                     </div>
                     <div style="text-align:right;">
-                        <small class="muted">Última: <strong><?= $lastIncidenceDate ?></strong></small>
+                        <small class="muted">Última: <strong><?= $lastIncidenceDate; ?></strong></small>
                     </div>
                 </div>
 

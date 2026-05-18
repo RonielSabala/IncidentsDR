@@ -1,15 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Super\Admin;
 
 use App\Core\Template;
-use App\Utils\GeneralUtils;
-use App\Utils\Entities\LabelUtils;
-
+use App\Utils\{Entities\LabelUtils, GeneralUtils};
 
 class LabelController
 {
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
         // Manejar vistas
         $route = $template::$viewPath;
@@ -30,7 +30,7 @@ class LabelController
         $template->apply($data);
     }
 
-    private function go_home_if(bool $success)
+    private function go_home_if(bool $success): void
     {
         if ($success) {
             header('Location: home.php');
@@ -40,8 +40,8 @@ class LabelController
     public function handle_create($template)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $label_name = $_POST["label_name"];
-            $icon_url = $_POST["icon_url"];
+            $label_name = $_POST['label_name'];
+            $icon_url = $_POST['icon_url'];
 
             // Validar nombre
             if (LabelUtils::getByName($label_name)) {
@@ -78,7 +78,7 @@ class LabelController
 
             // Validar nombre
             $other_label = LabelUtils::getByName($label['label_name']);
-            if ($other_label && $other_label['id'] != $id) {
+            if ($other_label && $other_label['id'] !== $id) {
                 $template->apply(['label' => $label]);
                 GeneralUtils::showAlert('Ya existe una etiqueta con ese nombre!', showReturn: false);
                 exit;

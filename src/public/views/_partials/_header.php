@@ -27,7 +27,7 @@ $homePage = GeneralUtils::getUserDefaultRouteByRole($userRole);
                 <a href="/home.php">
                     <i class="bi bi-house-exclamation brand-icon" aria-hidden="true"></i>
                 </a>
-                <a href="<?= $homePage ?>">
+                <a href="<?= $homePage; ?>">
                     <div class="brand-text">
                         <span class="brand-title">Incidencias RD</span>
                         <span class="brand-sub">Transparencia y acción comunitaria.</span>
@@ -41,14 +41,14 @@ $homePage = GeneralUtils::getUserDefaultRouteByRole($userRole);
                     <span class="incidents-label non-selectable">Incidencias</span>
                 </a>
 
-                <?php if (isset($_SESSION['user'])): ?>
+                <?php if (isset($_SESSION['user'])) { ?>
                     <div class="app-user">
                         <details class="app-user-menu">
                             <summary class="app-user-summary">
-                                <div class="app-user-avatar non-selectable"><?= $username[0] ?? '' ?></div>
+                                <div class="app-user-avatar non-selectable"><?= $username[0] ?? ''; ?></div>
                                 <div class="app-user-names">
-                                    <div class="app-user-name non-selectable"><?= $username ?></div>
-                                    <div class="app-user-role non-selectable"><?= ($userRole === 'default') ? '' : $userRole ?></div>
+                                    <div class="app-user-name non-selectable"><?= $username; ?></div>
+                                    <div class="app-user-role non-selectable"><?= ($userRole === 'default') ? '' : $userRole; ?></div>
                                 </div>
                             </summary>
                             <div class="text-end">
@@ -56,7 +56,7 @@ $homePage = GeneralUtils::getUserDefaultRouteByRole($userRole);
                             </div>
                         </details>
                     </div>
-                <?php endif; ?>
+                <?php } ?>
             </div>
         </div>
     </header>

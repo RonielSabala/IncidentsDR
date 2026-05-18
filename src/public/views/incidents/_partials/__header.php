@@ -5,15 +5,15 @@
             <input type="text" id="titleFilter" class="form-control" placeholder="Buscar por título..." />
             <select id="labelFilter" class="form-select">
                 <option value="">Todos los tipos</option>
-                <?php foreach ($labels as $label): ?>
-                    <option value="<?= $label['label_name'] ?>"><?= $label['label_name'] ?></option>
-                <?php endforeach; ?>
+                <?php foreach ($labels as $label) { ?>
+                    <option value="<?= $label['label_name']; ?>"><?= $label['label_name']; ?></option>
+                <?php } ?>
             </select>
             <select id="provinceFilter" class="form-select">
                 <option value="">Todas</option>
-                <?php foreach ($provinces as $prov): ?>
-                    <option value="<?= $prov['id'] ?>"><?= $prov['province_name'] ?></option>
-                <?php endforeach; ?>
+                <?php foreach ($provinces as $prov) { ?>
+                    <option value="<?= $prov['id']; ?>"><?= $prov['province_name']; ?></option>
+                <?php } ?>
             </select>
             <input type="date" id="fromFilter" class="form-control" />
             <input type="date" id="toFilter" class="form-control" />
@@ -27,7 +27,7 @@
 
             <!-- Botón para alternar entre mapa y lista -->
             <div class="d-flex justify-content-between align-items-center">
-                <?= $button ?>
+                <?= $button; ?>
             </div>
 
             <!-- Botón para alternar limite inferior para las fechas -->

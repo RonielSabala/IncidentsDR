@@ -1,27 +1,30 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Super\Admin;
 
 use App\Core\Template;
-use App\Utils\Entities\UserUtils;
-use App\Utils\Entities\RoleUtils;
-use App\Utils\Entities\LabelUtils;
-use App\Utils\Entities\ProvinceUtils;
-use App\Utils\Entities\MunicipalityUtils;
-use App\Utils\Entities\NeighborhoodUtils;
-
+use App\Utils\Entities\{
+    LabelUtils,
+    MunicipalityUtils,
+    NeighborhoodUtils,
+    ProvinceUtils,
+    RoleUtils,
+    UserUtils
+};
 
 class HomeController
 {
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
         $template->apply([
-            'users_count' => sizeof(UserUtils::getAll()),
-            'roles_count' => sizeof(RoleUtils::getAll()),
-            'provinces_count' => sizeof(ProvinceUtils::getAll()),
-            'municipalities_count' => sizeof(MunicipalityUtils::getAll()),
-            'neighborhoods_count' => sizeof(NeighborhoodUtils::getAll()),
-            'labels_count' => sizeof(LabelUtils::getAll()),
+            'users_count' => \count(UserUtils::getAll()),
+            'roles_count' => \count(RoleUtils::getAll()),
+            'provinces_count' => \count(ProvinceUtils::getAll()),
+            'municipalities_count' => \count(MunicipalityUtils::getAll()),
+            'neighborhoods_count' => \count(NeighborhoodUtils::getAll()),
+            'labels_count' => \count(LabelUtils::getAll()),
         ]);
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
-use App\Utils\PrintUtils;
-use App\Utils\GeneralUtils;
+use App\Utils\{GeneralUtils, PrintUtils};
+
 ?>
 
 <div class="row mb-4">
@@ -20,9 +20,9 @@ use App\Utils\GeneralUtils;
     </div>
 </div>
 
-<?php if (empty($incidents)): ?>
-    <?= GeneralUtils::showNoData($incidents, "incidencias pendientes"); ?>
-<?php else: ?>
+<?php if (empty($incidents)) { ?>
+    <?= GeneralUtils::showNoData($incidents, 'incidencias pendientes'); ?>
+<?php } else { ?>
     <div class="table-responsive">
         <table class="table">
             <thead>
@@ -36,15 +36,15 @@ use App\Utils\GeneralUtils;
             </thead>
             <tbody>
                 <?php $i = 1;
-                foreach ($incidents as $incidence): ?>
+        foreach ($incidents as $incidence) { ?>
                     <tr>
-                        <td><?= $i++ ?></td>
-                        <td><?= $incidence['title'] ?></td>
-                        <td><?= PrintUtils::getPrintableText($incidence['incidence_description']) ?></td>
-                        <td><?= $incidence['creation_date'] ?></td>
+                        <td><?= $i++; ?></td>
+                        <td><?= $incidence['title']; ?></td>
+                        <td><?= PrintUtils::getPrintableText($incidence['incidence_description']); ?></td>
+                        <td><?= $incidence['creation_date']; ?></td>
                         <td>
                             <a
-                                href="approve_incidence.php?id=<?= $incidence['id'] ?>"
+                                href="approve_incidence.php?id=<?= $incidence['id']; ?>"
                                 class="btn-modern btn-approve btn-sm"
                                 title="Aprobar">
                                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
@@ -53,7 +53,7 @@ use App\Utils\GeneralUtils;
                                 <span>Aprobar</span>
                             </a>
                             <a
-                                href="reject_incidence.php?id=<?= $incidence['id'] ?>"
+                                href="reject_incidence.php?id=<?= $incidence['id']; ?>"
                                 class="btn-modern btn-reject btn-sm"
                                 title="Rechazar">
                                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
@@ -63,8 +63,8 @@ use App\Utils\GeneralUtils;
                             </a>
                         </td>
                     </tr>
-                <?php endforeach; ?>
+                <?php } ?>
             </tbody>
         </table>
     </div>
-<?php endif; ?>
+<?php } ?>

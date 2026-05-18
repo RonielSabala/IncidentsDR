@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 const BASE_PATH = __DIR__ . '/../';
 require_once BASE_PATH . 'vendor/autoload.php';
 require_once BASE_PATH . 'config/db.php';
@@ -10,17 +12,17 @@ $creationSql = file_get_contents($creationFile);
 $insertionsSql = file_get_contents($insertionsFile);
 
 if (!$creationSql) {
-    die("No se pudo leer el archivo para crear la base de datos.");
+    exit('No se pudo leer el archivo para crear la base de datos.');
 }
 
 if (!$insertionsSql) {
-    die("No se pudo leer el archivo para insertar los datos.");
+    exit('No se pudo leer el archivo para insertar los datos.');
 }
 
 try {
     // Crear tablas
-    $pdo = new PDO("mysql:host=$host", $user, $pass, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    $pdo = new \PDO("mysql:host={$host}", $user, $pass, [
+        \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
     ]);
 
     $statements = array_filter(array_map('trim', explode(';', $creationSql)));
@@ -32,7 +34,7 @@ try {
 
     // Usar db
     if (!empty($db)) {
-        $pdo->exec("USE `$db`;");
+        $pdo->exec("USE `{$db}`;");
     }
 
     // Insertar datos
@@ -42,8 +44,8 @@ try {
             $pdo->exec($stmt);
         }
     }
-} catch (PDOException $e) {
-    die("Error de BD: " . $e->getMessage());
+} catch (\PDOException $e) {
+    exit('Error de BD: ' . $e->getMessage());
 }
 
 echo "✔️  Base de datos creada correctamente.\n";

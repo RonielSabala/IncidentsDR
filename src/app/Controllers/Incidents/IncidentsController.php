@@ -1,17 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Incidents;
 
 use App\Core\Template;
-use App\Utils\Entities\ProvinceUtils;
-use App\Utils\Entities\IncidenceUtils;
-use App\Utils\Entities\CommentUtils;
-use App\Utils\Entities\LabelUtils;
-
+use App\Utils\Entities\{CommentUtils, IncidenceUtils, LabelUtils, ProvinceUtils};
 
 class IncidentsController
 {
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
         $basePath = BASE_PATH . '/public';
 
@@ -61,7 +59,7 @@ class IncidentsController
             exit;
         }
 
-        if (str_contains(template::$viewPath, 'map')) {
+        if (str_contains(Template::$viewPath, 'map')) {
             $button = '
             <a href="list.php" id="toggleView" class="btn btn-primary btn rounded-pill d-flex align-items-center gap-2 shadow-sm">
                 <i class="bi bi-list-ul fs-5"></i>

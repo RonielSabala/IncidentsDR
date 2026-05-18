@@ -1,26 +1,28 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Reporters;
 
 use App\Core\Template;
-use App\Utils\Entities\LabelUtils;
-use App\Utils\Entities\ProvinceUtils;
-use App\Utils\Entities\IncidenceUtils;
-use App\Utils\Entities\MunicipalityUtils;
-use App\Utils\Entities\NeighborhoodUtils;
-
+use App\Utils\Entities\{
+    IncidenceUtils,
+    LabelUtils,
+    MunicipalityUtils,
+    NeighborhoodUtils,
+    ProvinceUtils
+};
 
 class ReportController
 {
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
-
         // Obtener incidencia
         if (!empty($_GET['id'])) {
             $incidence = IncidenceUtils::get($_GET['id']);
-            if ($incidence['is_approved'] == 1) {
+            if ($incidence['is_approved'] === 1) {
                 header('Location: home.php'); // Volver a home
-                exit();
+                exit;
             }
         } else {
             $incidence = null;

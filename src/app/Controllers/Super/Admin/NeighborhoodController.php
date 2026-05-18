@@ -1,19 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Super\Admin;
 
 use App\Core\Template;
 use App\Utils\GeneralUtils;
-use App\Utils\Entities\ProvinceUtils;
-use App\Utils\Entities\MunicipalityUtils;
-use App\Utils\Entities\NeighborhoodUtils;
-
+use App\Utils\Entities\{MunicipalityUtils, NeighborhoodUtils, ProvinceUtils};
 
 class NeighborhoodController
 {
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
-
         // Manejar vistas
         $route = $template::$viewPath;
         if (str_contains($route, 'create')) {
@@ -33,7 +31,7 @@ class NeighborhoodController
         $template->apply($data);
     }
 
-    private function go_home_if(bool $success)
+    private function go_home_if(bool $success): void
     {
         if ($success) {
             header('Location: home.php');
@@ -43,8 +41,8 @@ class NeighborhoodController
     public function handle_create()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $municipality_id = $_POST["municipality_id"];
-            $neighborhood_name = $_POST["neighborhood_name"];
+            $municipality_id = $_POST['municipality_id'];
+            $neighborhood_name = $_POST['neighborhood_name'];
 
             // Crear barrio
             self::go_home_if(NeighborhoodUtils::create($neighborhood_name, $municipality_id));
@@ -84,7 +82,7 @@ class NeighborhoodController
         return [
             'neighborhood' => $neighborhood,
             'municipalities' => MunicipalityUtils::getAll(),
-            'default_municipality' => $neighborhood['municipality_id']
+            'default_municipality' => $neighborhood['municipality_id'],
         ];
     }
 

@@ -6,7 +6,7 @@
         </div>
         <div>
             <h3 class="mb-0">Panel del administrador</h3>
-            <div class="muted-sm">Bienvenido, <span class="welcome-name"><?= htmlspecialchars($_SESSION['user']['username'] ?? 'Administrador') ?></span>! — Panel para gestionar la aplicación rápidamente.</div>
+            <div class="muted-sm">Bienvenido, <span class="welcome-name"><?= htmlspecialchars($_SESSION['user']['username'] ?? 'Administrador'); ?></span>! — Panel para gestionar la aplicación rápidamente.</div>
         </div>
         <div class="ms-auto text-end">
             <span class="badge badge-accent px-3 py-2">Rol: Administrador</span>
@@ -21,7 +21,7 @@
             <div class="d-flex align-items-center">
                 <div class="flex-grow-1">
                     <div class="muted-sm">Usuarios</div>
-                    <h4 class="mb-0"><?= number_format($users_count) ?></h4>
+                    <h4 class="mb-0"><?= number_format($users_count); ?></h4>
                 </div>
                 <div class="ms-3">
                     <i class="bi bi-people-fill fs-2" style="color:var(--accent-1)"></i>
@@ -36,7 +36,7 @@
             <div class="d-flex align-items-center">
                 <div class="flex-grow-1">
                     <div class="muted-sm">Roles</div>
-                    <h4 class="mb-0"><?= number_format($roles_count) ?></h4>
+                    <h4 class="mb-0"><?= number_format($roles_count); ?></h4>
                 </div>
                 <div class="ms-3">
                     <i class="bi bi-shield-lock fs-2" style="color:#f97316"></i>
@@ -74,7 +74,7 @@
                     <i class="bi bi-geo-alt-fill me-3 fs-3" style="color:#3b82f6"></i>
                     <div>
                         <div class="fw-semibold">Provincias</div>
-                        <div class="muted-sm">CRUD de provincias (<?= $provinces_count ?>)</div>
+                        <div class="muted-sm">CRUD de provincias (<?= $provinces_count; ?>)</div>
                     </div>
                 </div>
             </a>
@@ -86,7 +86,7 @@
                     <i class="bi bi-building me-3 fs-3" style="color:#06b6d4"></i>
                     <div>
                         <div class="fw-semibold">Municipios</div>
-                        <div class="muted-sm">CRUD de municipios (<?= $municipalities_count ?>)</div>
+                        <div class="muted-sm">CRUD de municipios (<?= $municipalities_count; ?>)</div>
                     </div>
                 </div>
             </a>
@@ -98,7 +98,7 @@
                     <i class="bi bi-house-fill me-3 fs-3" style="color:#10b981"></i>
                     <div>
                         <div class="fw-semibold">Barrios</div>
-                        <div class="muted-sm">CRUD de barrios (<?= $neighborhoods_count ?>)</div>
+                        <div class="muted-sm">CRUD de barrios (<?= $neighborhoods_count; ?>)</div>
                     </div>
                 </div>
             </a>
@@ -110,7 +110,7 @@
                     <i class="bi bi-tag-fill me-3 fs-3" style="color:#8b5cf6"></i>
                     <div>
                         <div class="fw-semibold">Etiquetas</div>
-                        <div class="muted-sm">CRUD de etiquetas (<?= $labels_count ?>)</div>
+                        <div class="muted-sm">CRUD de etiquetas (<?= $labels_count; ?>)</div>
                     </div>
                 </div>
             </a>

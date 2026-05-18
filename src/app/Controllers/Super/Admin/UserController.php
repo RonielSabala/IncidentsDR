@@ -1,15 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Super\Admin;
 
 use App\Core\Template;
-use App\Utils\Entities\UserUtils;
-use App\Utils\Entities\RoleUtils;
-
+use App\Utils\Entities\{RoleUtils, UserUtils};
 
 class UserController
 {
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
         $userId = null;
         $roleId = null;
@@ -22,9 +22,7 @@ class UserController
 
         $session_user_id = $_SESSION['user']['id'];
         $allUsers = UserUtils::getAll();
-        $filteredUsers = array_values(array_filter($allUsers, function ($u) use ($session_user_id) {
-            return $u['id'] != $session_user_id;
-        }));
+        $filteredUsers = array_values(array_filter($allUsers, static fn ($u) => $u['id'] !== $session_user_id));
 
         $template->apply([
             'users' => $filteredUsers,

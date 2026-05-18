@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Utils\Entities;
+declare(strict_types=1);
 
+namespace App\Utils\Entities;
 
 class UserUtils extends GenericEntityUtils
 {
-    private static $userExistSql = "SELECT 1 FROM users WHERE email = ?";
+    private static $userExistSql = 'SELECT 1 FROM users WHERE email = ?';
 
-    private static $getByIdSql = "SELECT
+    private static $getByIdSql = 'SELECT
         u.id,
         u.username,
         u.email,
@@ -26,9 +27,9 @@ class UserUtils extends GenericEntityUtils
         ur.role_id = r.id
     WHERE
         u.id = ?
-    ";
+    ';
 
-    private static $getByEmailSql = "SELECT
+    private static $getByEmailSql = 'SELECT
         u.id,
         u.username,
         u.email,
@@ -47,9 +48,9 @@ class UserUtils extends GenericEntityUtils
         ur.role_id = r.id
     WHERE
         u.email = ?
-    ";
+    ';
 
-    private static $getAllSql = "SELECT
+    private static $getAllSql = 'SELECT
         u.id,
         u.username,
         u.email,
@@ -63,9 +64,9 @@ class UserUtils extends GenericEntityUtils
         roles r ON ur.role_id = r.id
     GROUP BY
         u.id
-    ";
+    ';
 
-    private static $createUserSql = "INSERT INTO
+    private static $createUserSql = 'INSERT INTO
     users (
         username,
         email,
@@ -74,9 +75,9 @@ class UserUtils extends GenericEntityUtils
     )
     VALUES
         (?, ?, ?, ?)
-    ";
+    ';
 
-    private static $updatePasswordSql = "UPDATE users SET password_hash = ? WHERE email = ?";
+    private static $updatePasswordSql = 'UPDATE users SET password_hash = ? WHERE email = ?';
 
     public static function exists(string $userEmail): bool
     {
@@ -105,7 +106,7 @@ class UserUtils extends GenericEntityUtils
         // Insertar usuario
         $response = self::executeSql(self::$createUserSql, $fields);
         if (!$response) {
-            return False;
+            return false;
         }
 
         // Insertar relación Usuario-Rol
@@ -121,7 +122,7 @@ class UserUtils extends GenericEntityUtils
 
     public static function isUserInSession($route): bool
     {
-        return $route == 'auth' || (isset($_SESSION['user']) && UserUtils::exists($_SESSION['user']['email']));
+        return $route === 'auth' || (isset($_SESSION['user']) && self::exists($_SESSION['user']['email']));
     }
 
     public static function getRoleByUserId($id)
@@ -141,6 +142,6 @@ class UserUtils extends GenericEntityUtils
 
     public static function isUserSuper($id): bool
     {
-        return in_array(self::getRoleByUserId($id), ['validator', 'admin']);
+        return \in_array(self::getRoleByUserId($id), ['validator', 'admin'], true);
     }
 }

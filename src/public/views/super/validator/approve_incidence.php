@@ -1,6 +1,7 @@
 <?php
 
 use App\Utils\PrintUtils;
+
 ?>
 
 <div class="container center-screen pt-2">
@@ -21,15 +22,15 @@ use App\Utils\PrintUtils;
                     <div class="fields-grid">
                         <div class="field-item">
                             <label for="title" class="field-label">Título</label>
-                            <div id="title" name="title" class="field-value"><?= $incidence['title'] ?></div>
+                            <div id="title" name="title" class="field-value"><?= $incidence['title']; ?></div>
                         </div>
                         <div class="field-item">
                             <label for="description" class="field-label">Descripción</label>
-                            <div id="description" name="description" class="field-value"><?= PrintUtils::getPrintableText($incidence['incidence_description']) ?></div>
+                            <div id="description" name="description" class="field-value"><?= PrintUtils::getPrintableText($incidence['incidence_description']); ?></div>
                         </div>
                         <div class="field-item">
                             <label for="creation_date" class="field-label">Fecha de registro</label>
-                            <div id="creation_date" name="creation_date" class="field-value"><?= $incidence['creation_date'] ?></div>
+                            <div id="creation_date" name="creation_date" class="field-value"><?= $incidence['creation_date']; ?></div>
                         </div>
                     </div>
                 </dl>

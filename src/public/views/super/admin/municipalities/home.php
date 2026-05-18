@@ -1,6 +1,7 @@
 <?php
 
 use App\Utils\GeneralUtils;
+
 ?>
 
 <h2>Listado de municipios</h2>
@@ -19,24 +20,24 @@ use App\Utils\GeneralUtils;
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($municipalities as $municipality): ?>
+        <?php foreach ($municipalities as $municipality) { ?>
             <tr>
-                <td><?= htmlspecialchars($municipality['id']) ?></td>
-                <td><?= htmlspecialchars($municipality['municipality_name']) ?></td>
-                <td><?= htmlspecialchars($municipality['province_name']) ?></td>
+                <td><?= htmlspecialchars($municipality['id']); ?></td>
+                <td><?= htmlspecialchars($municipality['municipality_name']); ?></td>
+                <td><?= htmlspecialchars($municipality['province_name']); ?></td>
                 <td>
                     <div class="d-flex gap-1">
-                        <a href="edit.php?id=<?= $municipality['id'] ?>" class="btn btn-outline-action btn-warning" title="Editar">
+                        <a href="edit.php?id=<?= $municipality['id']; ?>" class="btn btn-outline-action btn-warning" title="Editar">
                             <i class="bi bi-pencil-square"></i>
                         </a>
-                        <a href="delete.php?id=<?= $municipality['id'] ?>" class="btn btn-outline-action btn-danger" title="Eliminar">
+                        <a href="delete.php?id=<?= $municipality['id']; ?>" class="btn btn-outline-action btn-danger" title="Eliminar">
                             <i class="bi bi-trash"></i>
                         </a>
                     </div>
                 </td>
             </tr>
-        <?php endforeach; ?>
+        <?php } ?>
     </tbody>
 </table>
 
-<?= GeneralUtils::showNoData($municipalities, "municipios"); ?>
+<?= GeneralUtils::showNoData($municipalities, 'municipios'); ?>

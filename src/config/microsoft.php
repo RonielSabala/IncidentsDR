@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 // Credenciales de microsoft
 $clientId = $_ENV['MICROSOFT_CLIENT_ID'];
 $clientSecret = $_ENV['MICROSOFT_CLIENT_SECRET'];

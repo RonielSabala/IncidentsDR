@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Utils;
+declare(strict_types=1);
 
+namespace App\Utils;
 
 class UriUtils
 {
@@ -10,11 +11,11 @@ class UriUtils
     public static function split($uri)
     {
         $uri_parts = explode('/', $uri);
-        if (count($uri_parts) == 1) {
+        if (\count($uri_parts) === 1) {
             return ['', $uri];
         }
 
-        $uri = implode('/', array_slice($uri_parts, 0, -1));
+        $uri = implode('/', \array_slice($uri_parts, 0, -1));
         $view = end($uri_parts);
         return [$uri, $view];
     }
@@ -24,7 +25,7 @@ class UriUtils
         $uri = $_SERVER['REQUEST_URI'];
 
         // Guardar la URI en el historial
-        $length = count($_SESSION['uri_history']);
+        $length = \count($_SESSION['uri_history']);
         if ($length === 0) {
             $_SESSION['uri_history'][] = $uri;
         } elseif ($uri !== self::$wellKnownUri) {
@@ -35,7 +36,7 @@ class UriUtils
             $last = $last_uri . '/' . explode('?', $last_view)[0];
             if ($current !== $last) {
                 $_SESSION['uri_history'][] = $uri;
-                $_SESSION['uri_history'] = array_slice($_SESSION['uri_history'], -5);
+                $_SESSION['uri_history'] = \array_slice($_SESSION['uri_history'], -5);
             }
         }
 
@@ -44,7 +45,7 @@ class UriUtils
 
     public static function getNthUri(int $n)
     {
-        $length = count($_SESSION['uri_history']);
+        $length = \count($_SESSION['uri_history']);
         if ($n < 0) {
             $n += $length;
         }

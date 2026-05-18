@@ -1,20 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Auth;
 
 use App\Core\Template;
-use App\Utils\OAuthUtils;
-use App\Utils\GeneralUtils;
-
+use App\Utils\{GeneralUtils, OAuthUtils};
 
 class SigninController
 {
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
         // Crear usuario
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $response = LoginController::logUser();
-            if (is_string($response) && !empty($response)) {
+            if (\is_string($response) && !empty($response)) {
                 $template->apply();
                 GeneralUtils::showAlert($response, showReturn: false);
             }

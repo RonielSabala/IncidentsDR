@@ -1,15 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Auth;
 
 use App\Core\Template;
 use App\Utils\GeneralUtils;
 use Google\Service\Oauth2 as Google_Service_Oauth2;
 
-
 class GoogleController
 {
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
         global $google_client;
 
@@ -36,7 +37,7 @@ class GoogleController
         $_SESSION['google_access_token'] = $access_token;
         $_SESSION['user'] = [
             'username' => $user_metadata['givenName'] . ' ' . $user_metadata['familyName'],
-            'email' => $user_metadata['email']
+            'email' => $user_metadata['email'],
         ];
 
         LoginController::logUser();

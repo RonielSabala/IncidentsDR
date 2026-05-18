@@ -1,16 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Super\Admin;
 
 use App\Core\Template;
 use App\Utils\GeneralUtils;
-use App\Utils\Entities\MunicipalityUtils;
-use App\Utils\Entities\ProvinceUtils;
-
+use App\Utils\Entities\{MunicipalityUtils, ProvinceUtils};
 
 class MunicipalityController
 {
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
         // Manejar vistas
         $route = $template::$viewPath;
@@ -31,7 +31,7 @@ class MunicipalityController
         $template->apply($data);
     }
 
-    private function go_home_if(bool $success)
+    private function go_home_if(bool $success): void
     {
         if ($success) {
             header('Location: home.php');
@@ -41,8 +41,8 @@ class MunicipalityController
     public function handle_create($template)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $province_id = $_POST["province_id"];
-            $municipality_name = $_POST["municipality_name"];
+            $province_id = $_POST['province_id'];
+            $municipality_name = $_POST['municipality_name'];
 
             // Validar nombre
             if (MunicipalityUtils::getByName($municipality_name)) {
@@ -83,11 +83,11 @@ class MunicipalityController
 
             // Validar nombre
             $other_municipality = MunicipalityUtils::getByName($municipality['municipality_name']);
-            if ($other_municipality && $other_municipality['id'] != $id) {
+            if ($other_municipality && $other_municipality['id'] !== $id) {
                 $template->apply([
                     'municipality' => $municipality,
                     'provinces' => ProvinceUtils::getAll(),
-                    'default_province' => $province['id']
+                    'default_province' => $province['id'],
                 ]);
 
                 GeneralUtils::showAlert('Ya existe un municipio con ese nombre!', showReturn: false);
@@ -102,7 +102,7 @@ class MunicipalityController
         return [
             'municipality' => $municipality,
             'provinces' => ProvinceUtils::getAll(),
-            'default_province' => $province['id']
+            'default_province' => $province['id'],
         ];
     }
 

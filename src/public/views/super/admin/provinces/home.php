@@ -1,6 +1,7 @@
 <?php
 
 use App\Utils\GeneralUtils;
+
 ?>
 
 <h2>Listado de provincias</h2>
@@ -18,23 +19,23 @@ use App\Utils\GeneralUtils;
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($provinces as $province): ?>
+        <?php foreach ($provinces as $province) { ?>
             <tr>
-                <td><?= htmlspecialchars($province['id']) ?></td>
-                <td><?= htmlspecialchars($province['province_name']) ?></td>
+                <td><?= htmlspecialchars($province['id']); ?></td>
+                <td><?= htmlspecialchars($province['province_name']); ?></td>
                 <td>
                     <div class="d-flex gap-1">
-                        <a href="edit.php?id=<?= $province['id'] ?>" class="btn btn-outline-action btn-warning" title="Editar">
+                        <a href="edit.php?id=<?= $province['id']; ?>" class="btn btn-outline-action btn-warning" title="Editar">
                             <i class="bi bi-pencil-square"></i>
                         </a>
-                        <a href="delete.php?id=<?= $province['id'] ?>" class="btn btn-outline-action btn-danger" title="Eliminar">
+                        <a href="delete.php?id=<?= $province['id']; ?>" class="btn btn-outline-action btn-danger" title="Eliminar">
                             <i class="bi bi-trash"></i>
                         </a>
                     </div>
                 </td>
             </tr>
-        <?php endforeach; ?>
+        <?php } ?>
     </tbody>
 </table>
 
-<?= GeneralUtils::showNoData($provinces, "provincias"); ?>
+<?= GeneralUtils::showNoData($provinces, 'provincias'); ?>

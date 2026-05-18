@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Utils\Entities;
+declare(strict_types=1);
 
+namespace App\Utils\Entities;
 
 class ProvinceUtils extends GenericEntityUtils
 {
-    private static $getSql = "SELECT * FROM provinces WHERE id = ?";
+    private static $getSql = 'SELECT * FROM provinces WHERE id = ?';
 
-    private static $getByNameSql = "SELECT * FROM provinces WHERE province_name = ?";
+    private static $getByNameSql = 'SELECT * FROM provinces WHERE province_name = ?';
 
-    private static $getAllSql = "SELECT * FROM provinces ORDER BY province_name";
+    private static $getAllSql = 'SELECT * FROM provinces ORDER BY province_name';
 
-    private static $createSql = "INSERT INTO provinces (province_name) VALUES (?)";
+    private static $createSql = 'INSERT INTO provinces (province_name) VALUES (?)';
 
-    private static $updateSql = "UPDATE provinces SET province_name = ? WHERE id = ?";
+    private static $updateSql = 'UPDATE provinces SET province_name = ? WHERE id = ?';
 
-    private static $deleteSql = "DELETE FROM provinces WHERE id = ?";
+    private static $deleteSql = 'DELETE FROM provinces WHERE id = ?';
 
     public static function get($id)
     {

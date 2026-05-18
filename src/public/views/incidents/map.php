@@ -5,11 +5,11 @@
 
 <!-- Mapa de incidencias -->
 <div id="incidents-map">
-    <?php include_once('_partials/__header.php'); ?>
+    <?php include_once '_partials/__header.php'; ?>
 </div>
 </div>
 
-<?php include_once('_partials/__footer.php'); ?>
+<?php include_once '_partials/__footer.php'; ?>
 
 <!-- Scripts del mapa -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>

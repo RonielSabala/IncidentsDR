@@ -15,7 +15,7 @@ $occurrence = PrintUtils::getPrintableDate($incidence['occurrence_date']);
 $created = PrintUtils::getPrintableDate($incidence['creation_date']);
 $deaths = $incidence['n_deaths'];
 $injured = $incidence['n_injured'];
-$losses = number_format((float)($incidence['n_losses']), 2, ',', '.');
+$losses = number_format((float) $incidence['n_losses'], 2, ',', '.');
 
 if (!empty($photos)) {
     $photos = array_map('trim', explode(',', $incidence['photo_urls']));
@@ -32,7 +32,7 @@ $avatar_colors = [
     '#1e40af',
     '#065f46',
     '#92400e',
-    '#6d28d9'
+    '#6d28d9',
 ];
 
 function avatar_color_index($seed, $colors)
@@ -62,19 +62,19 @@ $current_user_color_idx = avatar_color_index($username, $avatar_colors);
             <div class="incidence-card">
                 <div class="incidence-main">
                     <div class="incidence-top">
-                        <span class="kicker"><?= empty($labels) ? 'NOTICIA' : strtoupper($labels[0]['label_name']) ?></span>
+                        <span class="kicker"><?= empty($labels) ? 'NOTICIA' : strtoupper($labels[0]['label_name']); ?></span>
                         <svg class="icon" viewBox="0 0 24 24" width="16" height="16" focusable="false">
                             <path d="M12 2l2.1 4.6L19 8l-3.6 2.8L16 16l-4-2.5L8 16l.6-5.2L5 8l4.9-1.4L12 2z" />
                         </svg>
                     </div>
 
-                    <h2 id="incidence-title" class="title"><?= $title ?></h2>
+                    <h2 id="incidence-title" class="title"><?= $title; ?></h2>
                     <p class="incidence-meta" aria-label="Metadatos de la noticia">
-                        <time datetime="<?= date('c', strtotime($created)) ?>">Fecha de publicación: <strong><?= $created ?></strong></time>
+                        <time datetime="<?= date('c', strtotime($created)); ?>">Fecha de publicación: <strong><?= $created; ?></strong></time>
                         <span class="dot"></span>
-                        <span>Ocurrencia: <strong><?= $occurrence ?></strong></span>
+                        <span>Ocurrencia: <strong><?= $occurrence; ?></strong></span>
                         <span class="dot"></span>
-                        <span>Publicado por: <strong><?= $reporterName ?></strong></span>
+                        <span>Publicado por: <strong><?= $reporterName; ?></strong></span>
                     </p>
                 </div>
             </div>
@@ -86,7 +86,7 @@ $current_user_color_idx = avatar_color_index($username, $avatar_colors);
             <div class="section-description">
                 <div id="desc-title" class="section-title">Descripción</div>
                 <div class="description-text">
-                    <?= PrintUtils::getPrintableText($description) ?>
+                    <?= PrintUtils::getPrintableText($description); ?>
                 </div>
                 <div class="sr-only" aria-hidden="false">Enlaces en azul; cada enlace aparece en una línea separada.</div>
             </div>
@@ -96,40 +96,40 @@ $current_user_color_idx = avatar_color_index($username, $avatar_colors);
                 <div class="section-title">Detalles</div>
                 <div class="info-grid">
                     <div class="info-row">
-                        <div class="info-pill pill-deaths">Muertos: <span class="info-pill-value"><?= $deaths ?></span></div>
-                        <div class="info-pill pill-injured">Heridos: <span class="info-pill-value"><?= $injured ?></span></div>
-                        <div class="info-pill pill-losses">Pérdidas: <span class="info-pill-value">RD$ <?= $losses ?></span></div>
+                        <div class="info-pill pill-deaths">Muertos: <span class="info-pill-value"><?= $deaths; ?></span></div>
+                        <div class="info-pill pill-injured">Heridos: <span class="info-pill-value"><?= $injured; ?></span></div>
+                        <div class="info-pill pill-losses">Pérdidas: <span class="info-pill-value">RD$ <?= $losses; ?></span></div>
                     </div>
                 </div>
             </div>
 
             <!-- Carrusel de imágenes -->
-            <?php if (!empty($photos)): ?>
+            <?php if (!empty($photos)) { ?>
                 <div class="section-title text-center">Imágenes</div>
 
                 <section class="container-carousel">
                     <div class="slider-wrapper">
                         <button class="carousel-arrow arrow-left">&lt;</button>
                         <div class="slider" id="slider">
-                            <?php foreach ($photos as $index => $photo): ?>
+                            <?php foreach ($photos as $index => $photo) { ?>
                                 <img
                                     class="slide"
-                                    data-index="<?= $index ?>"
-                                    id="slide-<?= $index + 1 ?>"
-                                    src="<?= htmlspecialchars($photo) ?>"
-                                    alt="Foto de la incidencia <?= $index + 1 ?>" />
-                            <?php endforeach; ?>
+                                    data-index="<?= $index; ?>"
+                                    id="slide-<?= $index + 1; ?>"
+                                    src="<?= htmlspecialchars($photo); ?>"
+                                    alt="Foto de la incidencia <?= $index + 1; ?>" />
+                            <?php } ?>
                         </div>
 
                         <button class="carousel-arrow arrow-right">&gt;</button>
                         <div class="slider-nav" id="sliderNav" aria-label="Carousel navigation">
-                            <?php foreach ($photos as $index => $photo): ?>
-                                <button class="dot" type="button" data-index="<?= $index ?>"></button>
-                            <?php endforeach; ?>
+                            <?php foreach ($photos as $index => $photo) { ?>
+                                <button class="dot" type="button" data-index="<?= $index; ?>"></button>
+                            <?php } ?>
                         </div>
                     </div>
                 </section>
-            <?php else: ?>
+            <?php } else { ?>
                 <div class="section-title">Imágenes</div>
 
                 <section class="container-carousel no-photos">
@@ -149,37 +149,37 @@ $current_user_color_idx = avatar_color_index($username, $avatar_colors);
 
                         <div class="no-photos-text">
                             <h3 id="noPhotosText">No hay imágenes <i class="bi bi-images"></i></h3>
-                            <?php if ($isApproved): ?>
+                            <?php if ($isApproved) { ?>
                                 <p class="muted">No hay fotos disponibles para esta incidencia.</p>
-                            <?php else: ?>
+                            <?php } else { ?>
                                 <p class="muted">Aún no se han subido fotos para esta incidencia.</p>
-                            <?php endif; ?>
+                            <?php } ?>
                         </div>
                     </div>
                 </section>
-            <?php endif; ?>
+            <?php } ?>
 
             <!-- Etiquetas -->
-            <?php if ($labels): ?>
+            <?php if ($labels) { ?>
                 <div class="mt-1rem">
                     <div class="section-title">Etiquetas</div>
                     <div class="info-grid">
                         <div class="info-row labels-row" aria-label="Etiquetas">
-                            <?php foreach ($labels as $label): ?>
+                            <?php foreach ($labels as $label) { ?>
                                 <div class="info-pill info-pill-label">
-                                    <?= $label['label_name'] ?>
+                                    <?= $label['label_name']; ?>
                                 </div>
-                            <?php endforeach; ?>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
-            <?php endif; ?>
+            <?php } ?>
 
             <!-- Botón para sugerir corrección -->
             <div class="text-end">
                 <a id="btnGoToCorrectionPage"
                     class="btn btn-outline-success btn-sm"
-                    href="correction.php?incidence_id=<?= $incidenceId ?>">
+                    href="correction.php?incidence_id=<?= $incidenceId; ?>">
                     Corregir
                     <i class="bi bi-pencil-square"></i>
                 </a>
@@ -189,14 +189,14 @@ $current_user_color_idx = avatar_color_index($username, $avatar_colors);
 
     <!-- Comentarios -->
     <div>
-        <h5 class="comments-heading">Comentarios <span class="small-muted">· <?= count($comments) ?></span></h5>
+        <h5 class="comments-heading">Comentarios <span class="small-muted">· <?= count($comments); ?></span></h5>
 
         <!-- Añadir comentario -->
         <div class="card card-section pb-3 mb-3">
-            <form method="post" action="incidence.php?id=<?= $incidenceId ?>&action=POST" class="form-comment" autocomplete="off">
+            <form method="post" action="incidence.php?id=<?= $incidenceId; ?>&action=POST" class="form-comment" autocomplete="off">
                 <div class="comment-form-row">
-                    <div class="comment-avatar avatar-color-<?= $current_user_color_idx ?>" aria-hidden="true">
-                        <?= $current_user_initial ?>
+                    <div class="comment-avatar avatar-color-<?= $current_user_color_idx; ?>" aria-hidden="true">
+                        <?= $current_user_initial; ?>
                     </div>
                     <div class="comment-form-body">
                         <textarea name="comment_text" class="form-control" placeholder="Añade un comentario..." required></textarea>
@@ -210,10 +210,10 @@ $current_user_color_idx = avatar_color_index($username, $avatar_colors);
 
         <!-- Lista de comentarios -->
         <div class="card card-section pb-4">
-            <?php if (empty($comments)): ?>
+            <?php if (empty($comments)) { ?>
                 <div class="py-4 text-center small-muted">Aún no hay comentarios. Sé el primero en comentar.</div>
-            <?php else: ?>
-                <?php foreach ($comments as $c):
+            <?php } else { ?>
+                <?php foreach ($comments as $c) {
                     $author = htmlspecialchars($c['username'] ?? 'Usuario');
                     $cdate = isset($c['creation_date']) ? PrintUtils::getPrintableDate($c['creation_date']) : '';
                     $ctext = $c['comment_text'];
@@ -227,7 +227,7 @@ $current_user_color_idx = avatar_color_index($username, $avatar_colors);
                     $commentRow = '';
                     $commentAvatar = '';
                     $badge = [];
-                    if ($userId == $reporterId) {
+                    if ($userId === $reporterId) {
                         $commentRow = 'comment-row-reporter';
                         $commentAvatar = 'comment-avatar-reporter';
                         $badge = ['badge-reporter', 'REPORTER'];
@@ -240,28 +240,28 @@ $current_user_color_idx = avatar_color_index($username, $avatar_colors);
                         $commentAvatar = 'comment-avatar-admin';
                         $badge = ['badge-admin', 'ADMIN'];
                     }
-                ?>
-                    <div class="comment-row d-flex align-items-start <?= $commentRow ?>">
+                    ?>
+                    <div class="comment-row d-flex align-items-start <?= $commentRow; ?>">
                         <!-- Avatar: clase de color en vez de style -->
-                        <div class="comment-avatar <?= $commentAvatar ?> avatar-color-<?= $acolor_idx ?>" aria-hidden="true"><?= $initial ?></div>
+                        <div class="comment-avatar <?= $commentAvatar; ?> avatar-color-<?= $acolor_idx; ?>" aria-hidden="true"><?= $initial; ?></div>
 
                         <div class="comment-body">
                             <div class="d-flex align-items-center comment-author-row">
                                 <div>
                                     <div class="comment-author">
-                                        <?= $author ?>
-                                        <?php if (!empty($badge)): ?>
-                                            <span class="<?= $badge[0] ?>"><?= $badge[1] ?></span>
-                                        <?php endif; ?>
+                                        <?= $author; ?>
+                                        <?php if (!empty($badge)) { ?>
+                                            <span class="<?= $badge[0]; ?>"><?= $badge[1]; ?></span>
+                                        <?php } ?>
                                     </div>
-                                    <div class="comment-meta"><?= $cdate ?></div>
+                                    <div class="comment-meta"><?= $cdate; ?></div>
                                 </div>
 
                                 <div class="ms-auto d-flex align-items-center">
-                                    <?php if ($isUserSuper || $c['user_id'] == $user_id): ?>
+                                    <?php if ($isUserSuper || $c['user_id'] === $user_id) { ?>
                                         <!-- Botón de eliminar pequeño y elegante (Bootstrap) -->
-                                        <form method="post" action="incidence.php?id=<?= $incidenceId ?>&action=DELETE" onsubmit="return confirmDelete()">
-                                            <input type="hidden" name="comment_id" value="<?= (int)$c['id'] ?>">
+                                        <form method="post" action="incidence.php?id=<?= $incidenceId; ?>&action=DELETE" onsubmit="return confirmDelete()">
+                                            <input type="hidden" name="comment_id" value="<?= (int) $c['id']; ?>">
                                             <button
                                                 type="submit"
                                                 class="btn btn-sm btn-outline-danger"
@@ -269,14 +269,14 @@ $current_user_color_idx = avatar_color_index($username, $avatar_colors);
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </form>
-                                    <?php endif; ?>
+                                    <?php } ?>
                                 </div>
                             </div>
-                            <div class="comment-text"><?= PrintUtils::getPrintableText($ctext) ?></div>
+                            <div class="comment-text"><?= PrintUtils::getPrintableText($ctext); ?></div>
                         </div>
                     </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
+                <?php } ?>
+            <?php } ?>
         </div>
     </div>
 </div>

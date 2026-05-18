@@ -18,7 +18,7 @@
                     </div>
                     <div class="edit-item mb-2">
                         <label class="form-label">Vista previa</label>
-                        <img src="<?= $label['icon_url'] ?>" alt="etiqueta" style="width: 150px;">
+                        <img src="<?= $label['icon_url']; ?>" alt="etiqueta" style="width: 150px;">
                     </div>
                 </div>
                 <div class="d-flex justify-content-between align-items-center mt-4 action-buttons">

@@ -1,14 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Auth;
 
 use App\Core\Template;
 use App\Utils\OAuthUtils;
 
-
 class MicrosoftController
 {
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
         $oauthClient = OAuthUtils::getMicrosoftClient();
         $authorizationUrl = $oauthClient->getAuthorizationUrl();

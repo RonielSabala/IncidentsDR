@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Utils;
+declare(strict_types=1);
 
+namespace App\Utils;
 
 class GeneralUtils
 {
@@ -10,27 +11,27 @@ class GeneralUtils
         string $type = 'danger',
         string $returnRoute = '',
         bool $showReturn = true
-    ) {
+    ): void {
         if ($showReturn && empty($returnRoute)) {
             $returnRoute = UriUtils::getNthUri(-2);
         }
 
         echo "
         <div class='text-center mt-2'>
-            <div class='alert alert-$type'>$message</div>";
+            <div class='alert alert-{$type}'>{$message}</div>";
         if ($showReturn) {
-            echo "<a href='$returnRoute' class='btn btn-primary mb-4'>Volver</a>";
+            echo "<a href='{$returnRoute}' class='btn btn-primary mb-4'>Volver</a>";
         }
-        echo "</div>";
+        echo '</div>';
     }
 
     public static function getActiveClass(string $page): string
     {
-        $current = defined('CURRENT_PAGE') ? CURRENT_PAGE : '';
+        $current = \defined('CURRENT_PAGE') ? CURRENT_PAGE : '';
         return 'custom-link nav-link non-selectable' . ($current === $page ? ' active' : '');
     }
 
-    public static function showNoData($entities, string $entities_name)
+    public static function showNoData($entities, string $entities_name): void
     {
         if ($entities) {
             return;
@@ -47,10 +48,10 @@ class GeneralUtils
     public static function getUserDefaultRouteByRole($role)
     {
         $route = match ($role) {
-            'reporter'  => '/reporters',
+            'reporter' => '/reporters',
             'validator' => '/super/validator',
-            'admin'     => '/super/admin',
-            default     => '',
+            'admin' => '/super/admin',
+            default => '',
         };
 
         return $route . '/home.php';
