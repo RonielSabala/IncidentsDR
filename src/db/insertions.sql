@@ -1294,42 +1294,15 @@ VALUES
 INSERT INTO
     labels (label_name, icon_url)
 VALUES
-    (
-        'Accidente de tráfico',
-        'https://cdn-icons-png.flaticon.com/512/4939/4939159.png'
-    ),
-    (
-        'Robo',
-        'https://cdn-icons-png.flaticon.com/512/5138/5138771.png'
-    ),
-    (
-        'Incendio',
-        'https://cdn-icons-png.flaticon.com/512/2321/2321785.png'
-    ),
-    (
-        'Asesinato',
-        'https://cdn-icons-png.flaticon.com/512/2323/2323041.png'
-    ),
-    (
-        'Violencia',
-        'https://cdn-icons-png.flaticon.com/512/10554/10554358.png'
-    ),
-    (
-        'Desastre natural',
-        'https://cdn-icons-png.flaticon.com/512/15566/15566657.png'
-    ),
-    (
-        'Vandalismo',
-        'https://cdn-icons-png.flaticon.com/512/3154/3154230.png'
-    ),
-    (
-        'Actividad sospechosa',
-        'https://thumbs.dreamstime.com/b/suspicious-man-18883141.jpg'
-    ),
-    (
-        'Derrumbe',
-        'https://cdn-icons-png.flaticon.com/512/9210/9210011.png'
-    ),
+    ('Accidente de tráfico', 'https://cdn-icons-png.flaticon.com/512/4939/4939159.png'),
+    ('Robo', 'https://cdn-icons-png.flaticon.com/512/5138/5138771.png'),
+    ('Incendio', 'https://cdn-icons-png.flaticon.com/512/2321/2321785.png'),
+    ('Asesinato', 'https://cdn-icons-png.flaticon.com/512/2323/2323041.png'),
+    ('Violencia', 'https://cdn-icons-png.flaticon.com/512/10554/10554358.png'),
+    ('Desastre natural', 'https://cdn-icons-png.flaticon.com/512/15566/15566657.png'),
+    ('Vandalismo', 'https://cdn-icons-png.flaticon.com/512/3154/3154230.png'),
+    ('Actividad sospechosa', 'https://thumbs.dreamstime.com/b/suspicious-man-18883141.jpg'),
+    ('Derrumbe', 'https://cdn-icons-png.flaticon.com/512/9210/9210011.png'),
     (
         'Problemas de servicio',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbDORXSxKNqtCRsMmuJu1w_zC3j5LVRAxHOw&s'
@@ -1389,22 +1362,13 @@ VALUES
 INSERT INTO
     photos (incidence_id, photo_url)
 VALUES
-    (
-        1,
-        'https://elonce-media.elonce.com/fotos-nuevo/2022/06/29/o_1656533397_1.jpg'
-    ),
+    (1, 'https://elonce-media.elonce.com/fotos-nuevo/2022/06/29/o_1656533397_1.jpg'),
     (
         2,
         'https://www.meganoticias.mx/uploads/noticias/robo-a-negocios-registra-mayor-incidencia-en-tiendas-de-abarrotes-504148.jpg'
     ),
-    (
-        11,
-        'https://eldia.com.do/wp-content/uploads/2017/05/tra-1.webp'
-    ),
-    (
-        11,
-        'https://eldia.com.do/wp-content/uploads/2017/05/DAG45SrV0AEFa_h-300x229.jpg'
-    ),
+    (11, 'https://eldia.com.do/wp-content/uploads/2017/05/tra-1.webp'),
+    (11, 'https://eldia.com.do/wp-content/uploads/2017/05/DAG45SrV0AEFa_h-300x229.jpg'),
     (
         11,
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSItjHhDLLF80UM1Ec3XpCnW_TaZ--b53BiSQ&s'
@@ -1470,14 +1434,8 @@ VALUES
         4,
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB9_s93SSRl8kv_NgqKgm6CzxMw6WsLlJHuQ&s'
     ),
-    (
-        4,
-        'https://i.prcdn.co/img?regionKey=izAm7XgBBM8ToV2KKPuDuA=='
-    ),
-    (
-        5,
-        'https://c.files.bbci.co.uk/8BC0/production/_111067753_gettyimages-1201951850.jpg'
-    ),
+    (4, 'https://i.prcdn.co/img?regionKey=izAm7XgBBM8ToV2KKPuDuA=='),
+    (5, 'https://c.files.bbci.co.uk/8BC0/production/_111067753_gettyimages-1201951850.jpg'),
     (
         5,
         'https://www.swissinfo.ch/content/wp-content/uploads/sites/13/2024/10/17df1711cb3d2f720bbb2d81e48f0df1-87688572.jpg?ver=6f0e1e98'
@@ -1506,14 +1464,8 @@ VALUES
         24,
         'https://oem.com.mx/elsoldepuebla/img/24710115/1752242692/BASE_LANDSCAPE/480/image.webp'
     ),
-    (
-        35,
-        'https://media.acento.com.do/media/storage01/uploads/103461236_pared.jpg'
-    ),
-    (
-        35,
-        'https://c.files.bbci.co.uk/1267A/production/_128468357_rupe.jpg'
-    ),
+    (35, 'https://media.acento.com.do/media/storage01/uploads/103461236_pared.jpg'),
+    (35, 'https://c.files.bbci.co.uk/1267A/production/_128468357_rupe.jpg'),
     (
         37,
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqVwQ2A9pLUy6f-XVaw4MI9--oikPVIhZMVQ&s'
@@ -1542,10 +1494,7 @@ VALUES
         39,
         'https://www.radioformula.com.mx/img/2023/01/01/20250726_075708115_Elementos_de_la_Secretarxa_de_Seguridad_Pxblica_del_Estadox_aseguran_vehxculo_sospechoso_.jpg?__scale=w:412,h:231,t:2,'
     ),
-    (
-        40,
-        'https://www.elchaplon.com/wp-content/uploads/2025/07/cristales-rotos.jpg'
-    ),
+    (40, 'https://www.elchaplon.com/wp-content/uploads/2025/07/cristales-rotos.jpg'),
     (
         40,
         'https://s3.ppllstatics.com/laverdad/www/multimedia/202107/20/media/cortadas/162596943--1248x664.JPG'
@@ -1554,10 +1503,7 @@ VALUES
         40,
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUBaFftWmoRdJ5PChJyINFf9j9WuejAmazvQ&s'
     ),
-    (
-        21,
-        'https://www.one.gob.do/media/50wgu5r1/atraco.jpg?center=0.07934597031913497'
-    ),
+    (21, 'https://www.one.gob.do/media/50wgu5r1/atraco.jpg?center=0.07934597031913497'),
     (
         21,
         'https://www.one.gob.do/media/50wgu5r1/atraco.jpg?center=0.07934597031913497,0.54666666666666663&mode=crop&width=730&height=345'
@@ -1570,10 +1516,7 @@ VALUES
         32,
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWAllgneXJ4SGbTGCgFcsA-yDdv4VS-j8A2w&s'
     ),
-    (
-        7,
-        'https://www.arecoa.com/wp-content/uploads/2022/12/serenade-accidente-2.jpeg'
-    ),
+    (7, 'https://www.arecoa.com/wp-content/uploads/2022/12/serenade-accidente-2.jpeg'),
     (
         14,
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMQNp63j2gjYVs2OveDIn3-maw0_75r1AOMw&s'
@@ -1623,143 +1566,42 @@ VALUES
 INSERT INTO
     comments (incidence_id, user_id, comment_text)
 VALUES
-    (
-        1,
-        3,
-        'Pasé por ahí una hora después y todavía había tráfico.'
-    ),
+    (1, 3, 'Pasé por ahí una hora después y todavía había tráfico.'),
     (1, 7, '¿Alguien sabe si ya despejaron la zona?'),
-    (
-        2,
-        5,
-        'La tienda sigue cerrada hoy, parece que fue un robo importante.'
-    ),
-    (
-        3,
-        2,
-        'Confirmo, vivo cerca y el humo era muy denso.'
-    ),
-    (
-        3,
-        9,
-        '¿Hay algún centro de acopio para los afectados?'
-    ),
-    (
-        4,
-        8,
-        'La tubería ya fue reparada pero el agua estancada sigue ahí.'
-    ),
+    (2, 5, 'La tienda sigue cerrada hoy, parece que fue un robo importante.'),
+    (3, 2, 'Confirmo, vivo cerca y el humo era muy denso.'),
+    (3, 9, '¿Hay algún centro de acopio para los afectados?'),
+    (4, 8, 'La tubería ya fue reparada pero el agua estancada sigue ahí.'),
     (5, 6, 'La protesta sigue activa, eviten la zona.'),
-    (
-        6,
-        10,
-        'El peatón fue llevado al hospital, esperemos que se recupere.'
-    ),
-    (
-        7,
-        1,
-        'Ese edificio lleva años abandonado, era cuestión de tiempo.'
-    ),
-    (
-        8,
-        4,
-        'Reporté esto hace meses y nadie hizo nada, ahora es peor.'
-    ),
-    (
-        9,
-        3,
-        '¿Alguien tiene descripción de los asaltantes?'
-    ),
+    (6, 10, 'El peatón fue llevado al hospital, esperemos que se recupere.'),
+    (7, 1, 'Ese edificio lleva años abandonado, era cuestión de tiempo.'),
+    (8, 4, 'Reporté esto hace meses y nadie hizo nada, ahora es peor.'),
+    (9, 3, '¿Alguien tiene descripción de los asaltantes?'),
     (10, 7, 'Bomberos ya están en el lugar revisando.'),
     (
         21,
         30,
         'Testigo afirma que el peatón fue embestido por una motocicleta fuera de la vía principal.'
     ),
-    (
-        22,
-        4,
-        'Bomberos informan que el incendio se originó por un cortocircuito.'
-    ),
-    (
-        23,
-        6,
-        'Familias evacuadas y alojadas en un centro comunitario temporal.'
-    ),
-    (
-        24,
-        10,
-        'Se recuperaron pertenencias, el caso está en manos de la policía local.'
-    ),
-    (
-        25,
-        18,
-        'Inspección técnica recomendó suspensión de labores hasta nueva evaluación.'
-    ),
-    (
-        26,
-        20,
-        'Muestras tomadas para análisis, posible vertido desde una actividad cercana.'
-    ),
-    (
-        27,
-        23,
-        'La escena permanece acordonada, la policía solicita colaboración ciudadana.'
-    ),
-    (
-        27,
-        26,
-        'Se solicita realizar autopsia para esclarecer las causas.'
-    ),
-    (
-        28,
-        27,
-        'Brigadas trabajando en el perímetro, se pide a la población evitar la zona.'
-    ),
-    (
-        29,
-        28,
-        'Tránsito restablecido parcialmente, varios vehículos con daños.'
-    ),
-    (
-        30,
-        29,
-        'Evacuación preventiva realizada, comercios afectados reciben atención.'
-    ),
-    (
-        31,
-        4,
-        'Cámaras de seguridad pueden aportar pruebas, testimonios recabados.'
-    ),
-    (
-        32,
-        6,
-        'Productores reportan pérdidas significativas, solicitan apoyo técnico.'
-    ),
-    (
-        33,
-        10,
-        'Remolque especializado requerido para retirar el camión volcado.'
-    ),
-    (
-        34,
-        18,
-        'Vecinos protestan por falta de información tras el corte prolongado.'
-    ),
-    (
-        35,
-        20,
-        'Protección Civil iniciará evaluación de daños y plan de recuperación.'
-    );
+    (22, 4, 'Bomberos informan que el incendio se originó por un cortocircuito.'),
+    (23, 6, 'Familias evacuadas y alojadas en un centro comunitario temporal.'),
+    (24, 10, 'Se recuperaron pertenencias, el caso está en manos de la policía local.'),
+    (25, 18, 'Inspección técnica recomendó suspensión de labores hasta nueva evaluación.'),
+    (26, 20, 'Muestras tomadas para análisis, posible vertido desde una actividad cercana.'),
+    (27, 23, 'La escena permanece acordonada, la policía solicita colaboración ciudadana.'),
+    (27, 26, 'Se solicita realizar autopsia para esclarecer las causas.'),
+    (28, 27, 'Brigadas trabajando en el perímetro, se pide a la población evitar la zona.'),
+    (29, 28, 'Tránsito restablecido parcialmente, varios vehículos con daños.'),
+    (30, 29, 'Evacuación preventiva realizada, comercios afectados reciben atención.'),
+    (31, 4, 'Cámaras de seguridad pueden aportar pruebas, testimonios recabados.'),
+    (32, 6, 'Productores reportan pérdidas significativas, solicitan apoyo técnico.'),
+    (33, 10, 'Remolque especializado requerido para retirar el camión volcado.'),
+    (34, 18, 'Vecinos protestan por falta de información tras el corte prolongado.'),
+    (35, 20, 'Protección Civil iniciará evaluación de daños y plan de recuperación.');
 
 -- Corrections
 INSERT INTO
-    corrections (
-        incidence_id,
-        user_id,
-        correction_values,
-        is_approved
-    )
+    corrections (incidence_id, user_id, correction_values, is_approved)
 VALUES
     (
         35,

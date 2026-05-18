@@ -4,7 +4,16 @@ CREATE DATABASE incidents_db;
 
 USE incidents_db;
 
--- Users
+-- ROLES
+DROP TABLE IF EXISTS roles;
+
+CREATE TABLE
+    roles (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        role_name ENUM('default', 'reporter', 'validator', 'admin') NOT NULL
+    );
+
+-- USERS
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE
@@ -17,16 +26,7 @@ CREATE TABLE
         creation_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
     );
 
--- Roles
-DROP TABLE IF EXISTS roles;
-
-CREATE TABLE
-    roles (
-        id INT PRIMARY KEY AUTO_INCREMENT,
-        role_name ENUM ('default', 'reporter', 'validator', 'admin') NOT NULL
-    );
-
--- Users-Roles m:n relationship
+-- USER ROLES
 DROP TABLE IF EXISTS user_roles;
 
 CREATE TABLE
@@ -38,16 +38,13 @@ CREATE TABLE
         FOREIGN KEY (role_id) REFERENCES roles (id) ON DELETE CASCADE
     );
 
--- Provinces
+-- PROVINCES
 DROP TABLE IF EXISTS provinces;
 
 CREATE TABLE
-    provinces (
-        id TINYINT PRIMARY KEY AUTO_INCREMENT,
-        province_name VARCHAR(35) NOT NULL UNIQUE
-    );
+    provinces (id TINYINT PRIMARY KEY AUTO_INCREMENT, province_name VARCHAR(35) NOT NULL UNIQUE);
 
--- Municipalities
+-- MUNICIPALITIES
 DROP TABLE IF EXISTS municipalities;
 
 CREATE TABLE
@@ -58,7 +55,7 @@ CREATE TABLE
         FOREIGN KEY (province_id) REFERENCES provinces (id) ON DELETE CASCADE
     );
 
--- Neighborhoods
+-- NEIGHBORHOODS
 DROP TABLE IF EXISTS neighborhoods;
 
 CREATE TABLE
@@ -70,7 +67,7 @@ CREATE TABLE
         FOREIGN KEY (municipality_id) REFERENCES municipalities (id) ON DELETE CASCADE
     );
 
--- Incidents
+-- INCIDENTS
 DROP TABLE IF EXISTS incidents;
 
 CREATE TABLE
@@ -81,7 +78,7 @@ CREATE TABLE
         occurrence_date DATETIME NOT NULL,
         latitude DOUBLE NOT NULL,
         longitude DOUBLE NOT NULL,
-        is_approved TINYINT (1) NOT NULL DEFAULT 0,
+        is_approved TINYINT(1) NOT NULL DEFAULT 0,
         n_deaths INT DEFAULT 0,
         n_injured INT DEFAULT 0,
         n_losses DECIMAL(15, 2) DEFAULT 0,
@@ -96,7 +93,7 @@ CREATE TABLE
         FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
     );
 
--- Incidents photos
+-- INCIDENT PHOTOS
 DROP TABLE IF EXISTS photos;
 
 CREATE TABLE
@@ -107,7 +104,7 @@ CREATE TABLE
         FOREIGN KEY (incidence_id) REFERENCES incidents (id) ON DELETE CASCADE
     );
 
--- Incidents labels
+-- LABELS
 DROP TABLE IF EXISTS labels;
 
 CREATE TABLE
@@ -117,7 +114,7 @@ CREATE TABLE
         icon_url VARCHAR(255) NOT NULL
     );
 
--- Incidents-Labels m:n relationship
+-- INCIDENT LABELS
 DROP TABLE IF EXISTS incidence_labels;
 
 CREATE TABLE
@@ -129,7 +126,7 @@ CREATE TABLE
         FOREIGN KEY (label_id) REFERENCES labels (id) ON DELETE CASCADE
     );
 
--- Comments
+-- COMMENTS
 DROP TABLE IF EXISTS comments;
 
 CREATE TABLE
@@ -143,7 +140,7 @@ CREATE TABLE
         FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
     );
 
--- Corrections
+-- CORRECTIONS
 DROP TABLE IF EXISTS corrections;
 
 CREATE TABLE
@@ -152,13 +149,13 @@ CREATE TABLE
         incidence_id INT NOT NULL,
         user_id INT NOT NULL,
         correction_values JSON NOT NULL,
-        is_approved TINYINT (1) NOT NULL DEFAULT 0,
+        is_approved TINYINT(1) NOT NULL DEFAULT 0,
         creation_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (incidence_id) REFERENCES incidents (id) ON DELETE CASCADE,
         FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
     );
 
--- Indices
+-- INDICES
 CREATE UNIQUE INDEX idx_users_username ON users (username);
 
 CREATE INDEX idx_user_roles_role_id ON user_roles (role_id);
