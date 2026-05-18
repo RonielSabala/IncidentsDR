@@ -22,7 +22,9 @@
 }
 
 .shortcut {
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
 }
 
 .shortcut:hover {

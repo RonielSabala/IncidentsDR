@@ -85,7 +85,9 @@ html {
   border-radius: 999px;
   font-weight: 600;
   background: transparent;
-  transition: transform var(--trans), box-shadow var(--trans);
+  transition:
+    transform var(--trans),
+    box-shadow var(--trans);
 }
 
 .incidents:focus,
@@ -118,7 +120,9 @@ html {
   background: rgba(255, 255, 255, 0.03);
   padding: 6px 8px;
   border-radius: 12px;
-  transition: transform var(--trans), box-shadow var(--trans);
+  transition:
+    transform var(--trans),
+    box-shadow var(--trans);
 }
 
 .app-user-summary::-webkit-details-marker {
@@ -171,7 +175,9 @@ html {
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
-  transition: transform var(--trans), box-shadow var(--trans);
+  transition:
+    transform var(--trans),
+    box-shadow var(--trans);
 }
 
 .logout-btn:focus,

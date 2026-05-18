@@ -19,8 +19,10 @@
   border-radius: var(--btn-radius);
   font-weight: var(--btn-font-weight);
   box-shadow: var(--btn-shadow);
-  transition: background var(--btn-transition),
-    border-color var(--btn-transition), color var(--btn-transition);
+  transition:
+    background var(--btn-transition),
+    border-color var(--btn-transition),
+    color var(--btn-transition);
 }
 
 .btn i {
@@ -141,7 +143,9 @@
 }
 
 #incidents-list tbody tr {
-  transition: background-color 0.12s ease, transform 0.08s ease;
+  transition:
+    background-color 0.12s ease,
+    transform 0.08s ease;
   background: white;
 }
 
