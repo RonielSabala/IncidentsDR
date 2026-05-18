@@ -31,7 +31,6 @@ IncidentsDR is a PHP web application that lets users report, manage, and visuali
 - Click-to-open incident modal with full details, comments, and correction suggestions.
 - Role-based dashboards for reporters, validators, and administrators.
 - Administrative topology modeling (province, municipality, neighborhood).
-- Simple local deployment using PHP's built-in development server.
 
 ![Incident detail modal](docs/screenshots/incident_modal.jpg)
 
