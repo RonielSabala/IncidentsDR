@@ -213,9 +213,10 @@ Full access to the system:
 - Assign roles, manage labels, provinces, municipalities, and neighborhoods.
 - Manage all incidents, user accounts, and comments.
 
-![Admin municipalities](docs/screenshots/admin_municipalities.jpg)
-
-![Admin labels](docs/screenshots/admin_labels.jpg)
+| Feature             | View                                                               |
+| ------------------- | ------------------------------------------------------------------ |
+| Municipalities CRUD | ![Admin municipalities](docs/screenshots/admin_municipalities.jpg) |
+| Labels CRUD         | ![Admin labels](docs/screenshots/admin_labels.jpg)                 |
 
 ---
 
