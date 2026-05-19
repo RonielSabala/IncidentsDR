@@ -155,7 +155,7 @@ CREATE TABLE
         FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
     );
 
--- INDICES
+-- INDEXES
 CREATE UNIQUE INDEX idx_users_username ON users (username);
 
 CREATE INDEX idx_user_roles_role_id ON user_roles (role_id);
