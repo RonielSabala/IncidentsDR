@@ -252,9 +252,9 @@ Contributions are welcome. Suggested workflow:
 
 | Name                         | Contact                                              |
 | ---------------------------- | ---------------------------------------------------- |
-| Roniel Antonio Sabala Germán | [ronielsabala@gmail.com](ronielsabala@gmail.com)     |
-| Jeremy Reyes González        | [jeremyrg32@gmail.com](jeremyrg32@gmail.com)         |
-| Abel Eduardo Martínez Robles | [abelrobles0409@gmail.com](abelrobles0409@gmail.com) |
+| Roniel Antonio Sabala Germán | [ronielsabala@gmail.com](mailto:ronielsabala@gmail.com)     |
+| Jeremy Reyes González        | [jeremyrg32@gmail.com](mailto:jeremyrg32@gmail.com)         |
+| Abel Eduardo Martínez Robles | [abelrobles0409@gmail.com](mailto:abelrobles0409@gmail.com) |
 
 ---
 
