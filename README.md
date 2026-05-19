@@ -203,10 +203,10 @@ Four roles exist in the system:
 - Validator dashboard after login.
 - Review and approve or reject unapproved incidents and corrections.
 
-| Feature                       | View                                                                 |
-| ----------------------------- | -------------------------------------------------------------------- |
-| Validate incidents            | ![Validator incidents](docs/screenshots/validator_incidents.jpg)     |
-| Validate incident corrections | ![Validator corrections](docs/screenshots/validator_corrections.jpg) |
+| Action               | Preview                                                              |
+| -------------------- | -------------------------------------------------------------------- |
+| Validate incidents   | ![Validator incidents](docs/screenshots/validator_incidents.jpg)     |
+| Validate corrections | ![Validator corrections](docs/screenshots/validator_corrections.jpg) |
 
 ### `admin` <!-- omit in toc -->
 
@@ -216,10 +216,10 @@ Full access to the system:
 - Assign roles, manage labels, provinces, municipalities, and neighborhoods.
 - Manage all incidents, user accounts, and comments.
 
-| Feature             | View                                                               |
-| ------------------- | ------------------------------------------------------------------ |
-| Municipalities CRUD | ![Admin municipalities](docs/screenshots/admin_municipalities.jpg) |
-| Labels CRUD         | ![Admin labels](docs/screenshots/admin_labels.jpg)                 |
+| Screen         | Preview                                                            |
+| -------------- | ------------------------------------------------------------------ |
+| Municipalities | ![Admin municipalities](docs/screenshots/admin_municipalities.jpg) |
+| Labels         | ![Admin labels](docs/screenshots/admin_labels.jpg)                 |
 
 ---
 
