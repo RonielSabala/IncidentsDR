@@ -133,7 +133,7 @@ A dialog will show your credentials. Copy them into your `.env`. You can also re
 1. Register an app in [Azure Portal](https://portal.azure.com/) under **Microsoft Entra ID** > **App registrations**.
 2. Add the following authorized redirect URI:
 
-   ```md
+   ```plain
    http://localhost:1111/auth/MicrosoftCallbackController.php
    ```
 
