@@ -2,7 +2,7 @@
 
 IncidentsDR is a PHP web application that lets users report, manage, and visualize real-world incidents in the Dominican Republic on an interactive map.
 
-![Incident map](docs/screenshots/hero_screenshot.jpg)
+![Hero](docs/screenshots/hero.jpg)
 
 ---
 
@@ -32,7 +32,7 @@ IncidentsDR is a PHP web application that lets users report, manage, and visuali
 - Role-based dashboards for reporters, validators, and administrators.
 - Administrative topology modeling (province, municipality, neighborhood).
 
-![Incident detail modal](docs/screenshots/incident_modal.jpg)
+![Incident modal](docs/screenshots/incident_modal.jpg)
 
 ---
 
