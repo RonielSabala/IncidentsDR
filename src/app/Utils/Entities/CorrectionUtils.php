@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Utils\Entities;
+declare(strict_types=1);
 
+namespace App\Utils\Entities;
 
 class CorrectionUtils extends GenericEntityUtils
 {
-    private static $getSql = "SELECT * FROM corrections WHERE id = ?";
+    private static $getSql = 'SELECT * FROM corrections WHERE id = ?';
 
-    private static $getAllPendingSql = "SELECT 
+    private static $getAllPendingSql = 'SELECT
         c.id,
         c.incidence_id,
         u.username,
@@ -24,9 +25,9 @@ class CorrectionUtils extends GenericEntityUtils
     ORDER BY
         c.creation_date
     DESC
-    ";
+    ';
 
-    private static $createSql = "INSERT INTO
+    private static $createSql = 'INSERT INTO
     corrections (
         incidence_id,
         user_id,
@@ -34,13 +35,13 @@ class CorrectionUtils extends GenericEntityUtils
     )
     VALUES
         (?, ?, ?)
-    ";
+    ';
 
-    private static $deleteSql = "DELETE FROM corrections WHERE id = ?";
+    private static $deleteSql = 'DELETE FROM corrections WHERE id = ?';
 
-    private static $setApprovalSql = "UPDATE corrections SET is_approved = 1 WHERE id = ?";
+    private static $setApprovalSql = 'UPDATE corrections SET is_approved = 1 WHERE id = ?';
 
-    private static $applySql = "UPDATE
+    private static $applySql = 'UPDATE
         incidents
     SET
         latitude = ?,
@@ -53,7 +54,7 @@ class CorrectionUtils extends GenericEntityUtils
         neighborhood_id = ?
     WHERE
         id = ?
-    ";
+    ';
 
     public static function get($id)
     {
@@ -69,7 +70,7 @@ class CorrectionUtils extends GenericEntityUtils
     {
         // Formatear datos para el Json
         if (isset($correctionData['labels'])) {
-            $correctionData['labels'] = is_array($correctionData['labels'])
+            $correctionData['labels'] = \is_array($correctionData['labels'])
                 ? $correctionData['labels']
                 : json_decode($correctionData['labels'], true);
         }
@@ -77,14 +78,14 @@ class CorrectionUtils extends GenericEntityUtils
         $numericFields = ['n_deaths', 'n_injured', 'n_losses', 'province_id', 'municipality_id', 'neighborhood_id'];
         foreach ($numericFields as $field) {
             if (isset($correctionData[$field])) {
-                $correctionData[$field] = (int)$correctionData[$field];
+                $correctionData[$field] = (int) $correctionData[$field];
             }
         }
 
         $floatFields = ['latitude', 'longitude'];
         foreach ($floatFields as $field) {
             if (isset($correctionData[$field])) {
-                $correctionData[$field] = (float)$correctionData[$field];
+                $correctionData[$field] = (float) $correctionData[$field];
             }
         }
 
@@ -94,7 +95,7 @@ class CorrectionUtils extends GenericEntityUtils
             [
                 $incidenceId,
                 $userId,
-                $jsonData
+                $jsonData,
             ]
         );
     }

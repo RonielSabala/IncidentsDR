@@ -11,13 +11,13 @@
                     <div class="edit-item">
                         <label for="province_id" class="form-label">Nombre de la provincia</label>
                         <select id="province_id" class="form-select" name="province_id" required>
-                            <?php foreach ($provinces as $prov): ?>
+                            <?php foreach ($provinces as $prov) { ?>
                                 <option
-                                    value="<?= $prov['id'] ?>"
-                                    <?= ($prov['id'] == $default_province) ? 'selected' : '' ?>>
-                                    <?= $prov['province_name'] ?>
+                                    value="<?= $prov['id']; ?>"
+                                    <?= ($prov['id'] === $default_province) ? 'selected' : ''; ?>>
+                                    <?= $prov['province_name']; ?>
                                 </option>
-                            <?php endforeach; ?>
+                            <?php } ?>
                         </select>
                     </div>
                     <div class="edit-item">

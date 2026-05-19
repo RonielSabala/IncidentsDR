@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Auth;
 
 use App\Core\Template;
 
-
 class LogoutController
 {
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
         global $google_client;
 

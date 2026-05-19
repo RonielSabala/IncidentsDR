@@ -17,7 +17,10 @@
 
 .page-card .btn {
   border-radius: 12px;
-  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.12s ease;
 }
 
 .heading-with-icon .icon {
@@ -45,7 +48,9 @@
   border-radius: 12px;
   font-weight: 600;
   letter-spacing: 0.5px;
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
 }
 
 .btn-success:hover {

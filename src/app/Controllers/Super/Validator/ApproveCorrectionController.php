@@ -1,15 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Super\Validator;
 
 use App\Core\Template;
-use App\Utils\GeneralUtils;
-use App\Utils\Entities\CorrectionUtils;
-
+use App\Utils\{Entities\CorrectionUtils, GeneralUtils};
 
 class ApproveCorrectionController
 {
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
         if (!isset($_GET['id'])) {
             GeneralUtils::showAlert('No se especificó la corrección.');

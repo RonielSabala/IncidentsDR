@@ -12,9 +12,9 @@
                         <label for="province_id" class="form-label">Nombre de la provincia</label>
                         <select id="province_id" class="form-select" name="province_id" required>
                             <option selected value="">Seleccione</option>
-                            <?php foreach ($provinces as $prov): ?>
-                                <option value="<?= $prov['id'] ?>"><?= $prov['province_name'] ?></option>
-                            <?php endforeach; ?>
+                            <?php foreach ($provinces as $prov) { ?>
+                                <option value="<?= $prov['id']; ?>"><?= $prov['province_name']; ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                     <div class="edit-item">

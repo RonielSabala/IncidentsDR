@@ -1,15 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Core;
 
-use App\Utils\UriUtils;
-use App\Utils\GeneralUtils;
-use App\Utils\Entities\UserUtils;
-
+use App\Utils\{Entities\UserUtils, GeneralUtils, UriUtils};
 
 class Router
 {
-    public function dispatch()
+    public function dispatch(): void
     {
         // Iniciar la sesión si no está activa
         if (session_status() === PHP_SESSION_NONE) {
@@ -34,9 +33,10 @@ class Router
 
         // Obtener ruta
         $uri_route = ROUTES[$uri] ?? null;
+        $controller = null;
         if ($uri_route) {
             $controller = new $uri_route['controller']();
-            define('CURRENT_PAGE', $uri_route['page'] ?? '');
+            \define('CURRENT_PAGE', $uri_route['page'] ?? '');
         }
 
         // Validar acceso a la vista
@@ -44,10 +44,10 @@ class Router
         if (!$pageNotFound && !str_contains($route, 'auth')) {
             $userRole = UserUtils::getRoleByUserId($_SESSION['user']['id']);
             $pageNotFound = match ($userRole) {
-                'default'   => ($route !== '' && !str_contains($route, 'incidents')),
-                'reporter'  => str_contains($route, 'super/'),
+                'default' => ($route !== '' && !str_contains($route, 'incidents')),
+                'reporter' => str_contains($route, 'super/'),
                 'validator' => str_contains($route, 'reporters') || str_contains($route, 'super/admin'),
-                default     => false,
+                default => false,
             };
         }
 

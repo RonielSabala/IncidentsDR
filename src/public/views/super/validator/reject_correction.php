@@ -1,6 +1,7 @@
 <?php
 
 use App\Utils\PrintUtils;
+
 ?>
 
 <div class="container center-screen pt-2">
@@ -22,7 +23,7 @@ use App\Utils\PrintUtils;
                         <div class="field-item">
                             <label for="incidence" class="field-label">Incidencia original</label>
                             <div id="incidence" name="incidence" class="field-value">
-                                <a href="/incidents/incidence.php?id=<?= $correction['incidence_id'] ?>" class="btn btn-sm btn-outline-action btn-go">
+                                <a href="/incidents/incidence.php?id=<?= $correction['incidence_id']; ?>" class="btn btn-sm btn-outline-action btn-go">
                                     Ver
                                     <i class="bi bi-box-arrow-up-right"></i>
                                 </a>
@@ -31,7 +32,7 @@ use App\Utils\PrintUtils;
                         <div class="field-item">
                             <label for="date" class="field-label">Fecha de solicitud</label>
                             <div id="date" name="date" class="field-value">
-                                <?= PrintUtils::getPrintableDate($correction['creation_date']) ?>
+                                <?= PrintUtils::getPrintableDate($correction['creation_date']); ?>
                             </div>
                         </div>
                         <div class="field-item">
@@ -40,22 +41,22 @@ use App\Utils\PrintUtils;
                                 <?php
                                 $data = json_decode($correction['correction_values'], true);
 
-                                // Mostrar cada campo por separado
-                                echo '<div class="json-fields">';
-                                foreach ($data as $key => $value) {
-                                    echo '<div class="json-field mb-2">';
-                                    echo '<label class="fw-bold">' . htmlspecialchars((string)$key) . '</label>';
-                                    echo '<div class="ms-2">';
-                                    if (is_null($value) || is_scalar($value)) {
-                                        echo '<span>' . htmlspecialchars((string)$value) . '</span>';
-                                    } else {
-                                        // Para valores complejos (arrays u objetos), mostrar JSON bonito dentro de <pre>
-                                        echo '<pre class="json-pre">' . htmlspecialchars(json_encode($value, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)) . '</pre>';
-                                    }
-                                    echo '</div></div>';
-                                }
-                                echo '</div>';
-                                ?>
+// Mostrar cada campo por separado
+echo '<div class="json-fields">';
+foreach ($data as $key => $value) {
+    echo '<div class="json-field mb-2">';
+    echo '<label class="fw-bold">' . htmlspecialchars((string) $key) . '</label>';
+    echo '<div class="ms-2">';
+    if (null === $value || is_scalar($value)) {
+        echo '<span>' . htmlspecialchars((string) $value) . '</span>';
+    } else {
+        // Para valores complejos (arrays u objetos), mostrar JSON bonito dentro de <pre>
+        echo '<pre class="json-pre">' . htmlspecialchars(json_encode($value, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)) . '</pre>';
+    }
+    echo '</div></div>';
+}
+echo '</div>';
+?>
                             </div>
                         </div>
                     </div>

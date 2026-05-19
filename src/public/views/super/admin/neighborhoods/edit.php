@@ -11,13 +11,13 @@
                     <div class="edit-item">
                         <label for="municipality_id" class="form-label">Nombre del municipio</label>
                         <select id="municipality_id" class="form-select" name="municipality_id" required>
-                            <?php foreach ($municipalities as $municipality): ?>
+                            <?php foreach ($municipalities as $municipality) { ?>
                                 <option
-                                    value="<?= $municipality['id'] ?>"
-                                    <?= ($municipality['id'] == $default_municipality) ? 'selected' : '' ?>>
-                                    <?= $municipality['municipality_name'] ?>
+                                    value="<?= $municipality['id']; ?>"
+                                    <?= ($municipality['id'] === $default_municipality) ? 'selected' : ''; ?>>
+                                    <?= $municipality['municipality_name']; ?>
                                 </option>
-                            <?php endforeach; ?>
+                            <?php } ?>
                         </select>
                     </div>
                     <div class="edit-item">

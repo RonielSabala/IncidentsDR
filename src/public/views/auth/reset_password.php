@@ -2,7 +2,7 @@
   <div class="col-12 col-sm-10 col-md-8 col-lg-6">
     <div class="card page-card" role="region" aria-labelledby="reset-title">
       <div class="card-body p-4 p-md-5">
-        <?php if (!isset($_SESSION['is_code_valid'])): ?>
+        <?php if (!isset($_SESSION['is_code_valid'])) { ?>
           <div class="text-center mb-4">
             <h3 id="page-title" class="fw-bold">Ingresa el código</h3>
             <p class="text-muted small mb-0">Revisa tu correo y escribe el código de verificación que recibiste.</p>
@@ -24,7 +24,7 @@
               <a href="forgot_password.php" class="text-decoration-none"><i class="bi bi-arrow-left"></i> Reenviar o cambiar correo</a>
             </div>
           </form>
-        <?php else: ?>
+        <?php } else { ?>
           <div class="text-center mb-4">
             <h3 id="page-title" class="fw-bold">Nueva contraseña</h3>
             <p class="text-muted small mb-0">Escriba su nueva contraseña y confírmela para completar el proceso.</p>
@@ -60,7 +60,7 @@
               <a href="login.php" class="text-decoration-none"><i class="bi bi-box-arrow-in-right"></i> Volver al inicio</a>
             </div>
           </form>
-        <?php endif; ?>
+        <?php } ?>
       </div>
     </div>
   </div>

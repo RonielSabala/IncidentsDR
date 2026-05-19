@@ -1,17 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Super\Admin;
 
 use App\Core\Template;
-use App\Utils\GeneralUtils;
-use App\Utils\Entities\ProvinceUtils;
-
+use App\Utils\{Entities\ProvinceUtils, GeneralUtils};
 
 class ProvinceController
 {
-
-
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
         // Manejar vistas
         $route = $template::$viewPath;
@@ -32,7 +30,7 @@ class ProvinceController
         $template->apply($data);
     }
 
-    private function go_home_if(bool $success)
+    private function go_home_if(bool $success): void
     {
         if ($success) {
             header('Location: home.php');
@@ -42,7 +40,7 @@ class ProvinceController
     public function handle_create($template)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $province_name = $_POST["province_name"];
+            $province_name = $_POST['province_name'];
 
             // Validar nombre
             if (ProvinceUtils::getByName($province_name)) {
@@ -78,7 +76,7 @@ class ProvinceController
 
             // Validar nombre
             $other_province = ProvinceUtils::getByName($province['province_name']);
-            if ($other_province && $other_province['id'] != $id) {
+            if ($other_province && $other_province['id'] !== $id) {
                 $template->apply(['province' => $province]);
                 GeneralUtils::showAlert('Ya existe una provincia con ese nombre!', showReturn: false);
                 exit;

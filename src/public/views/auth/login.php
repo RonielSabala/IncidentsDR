@@ -43,7 +43,7 @@
 
                 <!-- Opciones de autenticación externa -->
                 <div class="text-center">
-                    <a href="<?= $google_auth_url ?>" id="btn-google" class="btn btn-social w-100 mb-2">
+                    <a href="<?= $google_auth_url; ?>" id="btn-google" class="btn btn-social w-100 mb-2">
                         <i class="bi bi-google me-2"></i> Continuar con Google
                     </a>
                     <a href="MicrosoftController.php" id="btn-microsoft" class="btn btn-social w-100">

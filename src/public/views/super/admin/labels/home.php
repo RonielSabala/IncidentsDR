@@ -1,6 +1,7 @@
 <?php
 
 use App\Utils\GeneralUtils;
+
 ?>
 
 <h2>Listado de etiquetas</h2>
@@ -19,26 +20,26 @@ use App\Utils\GeneralUtils;
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($labels as $label): ?>
+        <?php foreach ($labels as $label) { ?>
             <tr>
-                <td><?= htmlspecialchars($label['id']) ?></td>
-                <td><?= htmlspecialchars($label['label_name']) ?></td>
+                <td><?= htmlspecialchars($label['id']); ?></td>
+                <td><?= htmlspecialchars($label['label_name']); ?></td>
                 <td>
-                    <img src="<?= htmlspecialchars($label['icon_url']) ?>" alt="etiqueta" style="width: 70px;">
+                    <img src="<?= htmlspecialchars($label['icon_url']); ?>" alt="etiqueta" style="width: 70px;">
                 </td>
                 <td>
                     <div class="d-flex gap-1">
-                        <a href="edit.php?id=<?= $label['id'] ?>" class="btn btn-outline-action btn-warning" title="Editar">
+                        <a href="edit.php?id=<?= $label['id']; ?>" class="btn btn-outline-action btn-warning" title="Editar">
                             <i class="bi bi-pencil-square"></i>
                         </a>
-                        <a href="delete.php?id=<?= $label['id'] ?>" class="btn btn-outline-action btn-danger" title="Eliminar">
+                        <a href="delete.php?id=<?= $label['id']; ?>" class="btn btn-outline-action btn-danger" title="Eliminar">
                             <i class="bi bi-trash"></i>
                         </a>
                     </div>
                 </td>
             </tr>
-        <?php endforeach; ?>
+        <?php } ?>
     </tbody>
 </table>
 
-<?= GeneralUtils::showNoData($labels, "etiquetas"); ?>
+<?= GeneralUtils::showNoData($labels, 'etiquetas'); ?>

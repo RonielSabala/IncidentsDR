@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Utils\Entities;
+declare(strict_types=1);
 
+namespace App\Utils\Entities;
 
 class RoleUtils extends GenericEntityUtils
 {
-    private static $getIdByNameSql = "SELECT id FROM roles WHERE role_name = ?";
+    private static $getIdByNameSql = 'SELECT id FROM roles WHERE role_name = ?';
 
-    private static $getAllSql = "SELECT * FROM roles";
+    private static $getAllSql = 'SELECT * FROM roles';
 
-    private static $assignUserRoleSql = "INSERT INTO user_roles (user_id, role_id) VALUES (?, ?)";
+    private static $assignUserRoleSql = 'INSERT INTO user_roles (user_id, role_id) VALUES (?, ?)';
 
-    private static $clearUserRolesSql = "DELETE FROM user_roles WHERE user_id = ?";
+    private static $clearUserRolesSql = 'DELETE FROM user_roles WHERE user_id = ?';
 
     public static function getIdByName($roleName)
     {

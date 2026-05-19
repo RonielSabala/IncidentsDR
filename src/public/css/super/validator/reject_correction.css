@@ -116,7 +116,9 @@
   border-radius: 10px;
   padding: 10px 12px;
   box-shadow: 0 1px 2px rgba(16, 24, 40, 0.03);
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
 }
 
 .json-field:hover {
@@ -148,8 +150,9 @@
   border: 1px dashed #e6e9ef;
   padding: 10px;
   border-radius: 8px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono",
-    "Segoe UI Mono", monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono",
+    monospace;
   font-size: 0.9rem;
   line-height: 1.45;
   white-space: pre-wrap;

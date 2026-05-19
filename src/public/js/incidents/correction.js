@@ -21,7 +21,10 @@ $(document).ready(function () {
 
     if (!provinceId) return;
 
-    $.getJSON("correction.php", { action: "GET", province_id: provinceId })
+    $.getJSON("correction.php", {
+        action: "GET",
+        province_id: provinceId
+      })
       .done(function (municipalities) {
         if (municipalities.length > 0) {
           var html = '<option value="">Seleccione</option>';
@@ -50,9 +53,9 @@ $(document).ready(function () {
     if (!municipalityId) return;
 
     $.getJSON("correction.php", {
-      action: "GET",
-      municipality_id: municipalityId,
-    })
+        action: "GET",
+        municipality_id: municipalityId,
+      })
       .done(function (neighborhoods) {
         if (neighborhoods.length > 0) {
           var html = '<option value="">Seleccione</option>';
@@ -112,5 +115,3 @@ $(document).ready(function () {
     loadNeighborhoods(municipalityId);
   });
 });
-
-

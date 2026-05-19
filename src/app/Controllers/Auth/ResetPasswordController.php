@@ -1,29 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Auth;
 
 use App\Core\Template;
-use App\Utils\GeneralUtils;
-use App\Utils\Entities\UserUtils;
-
+use App\Utils\{Entities\UserUtils, GeneralUtils};
 
 class ResetPasswordController
 {
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             $template->apply();
             exit;
         }
 
-        if ($_POST['action'] == 'validate_code') {
+        if ($_POST['action'] === 'validate_code') {
             $code = trim($_POST['code'] ?? '');
 
             // ¿Existe código en sesión y no expiró?
             if (!isset($_SESSION['reset_password_code']) || time() > $_SESSION['reset_password_code_expiration_time']) {
                 $template->apply();
-                GeneralUtils::showAlert('Código expirado. Vuelve a solicitarlo.',  returnRoute: 'forgot_password.php');
-            } elseif ($code == $_SESSION['reset_password_code']) {
+                GeneralUtils::showAlert('Código expirado. Vuelve a solicitarlo.', returnRoute: 'forgot_password.php');
+            } elseif ($code === $_SESSION['reset_password_code']) {
                 $_SESSION['is_code_valid'] = true;
                 header('Location: reset_password.php');
             } else {
@@ -37,13 +37,13 @@ class ResetPasswordController
         // Validar código
         if (empty($_SESSION['is_code_valid'])) {
             $template->apply();
-            GeneralUtils::showAlert('Acceso no autorizado.',  returnRoute: 'forgot_password.php');
+            GeneralUtils::showAlert('Acceso no autorizado.', returnRoute: 'forgot_password.php');
             exit;
         }
 
         // Validar contraseñas
         $password = $_POST['password'] ?? '';
-        $confirm_password  = $_POST['confirm_password'] ?? '';
+        $confirm_password = $_POST['confirm_password'] ?? '';
         if ($password !== $confirm_password) {
             $template->apply();
             GeneralUtils::showAlert('Las contraseñas no coinciden.', showReturn: false);

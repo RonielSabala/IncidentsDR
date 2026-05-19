@@ -1,14 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Reporters;
 
 use App\Core\Template;
 use App\Utils\Entities\IncidenceUtils;
 
-
 class HomeController
 {
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
         $reporterId = $_SESSION['user']['id'];
         $incidents = IncidenceUtils::getAllByReporterId($reporterId);

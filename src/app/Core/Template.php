@@ -1,32 +1,33 @@
 <?php
 
-namespace App\Core;
+declare(strict_types=1);
 
+namespace App\Core;
 
 class Template
 {
-    static private $basePath = __DIR__ . "/../../public";
-    static private $viewsPath = __DIR__ . "/../../public/views";
-    static public $partialsPath = '';
-    static public $viewPath = '';
+    private static $basePath = __DIR__ . '/../../public';
+    private static $viewsPath = __DIR__ . '/../../public/views';
+    public static $partialsPath = '';
+    public static $viewPath = '';
     private static bool $jsonMode = false;
 
-    public static function enableJsonMode()
+    public static function enableJsonMode(): void
     {
         self::$jsonMode = true;
         ob_end_clean();
         header('Content-Type: application/json; charset=utf-8');
     }
 
-    private static function findPartialsPath()
+    private static function findPartialsPath(): void
     {
         $relative = trim(self::$partialsPath ?? '', '/');
         $parts = $relative === '' ? [] : explode('/', $relative);
 
         // Recorremos desde el path completo hacia arriba hasta 0 niveles
         $found = false;
-        for ($i = count($parts); $i >= 0; $i--) {
-            $sub = $i > 0 ? implode('/', array_slice($parts, 0, $i)) : '';
+        for ($i = \count($parts); $i >= 0; --$i) {
+            $sub = $i > 0 ? implode('/', \array_slice($parts, 0, $i)) : '';
             $try = self::$viewsPath . ($sub !== '' ? '/' . $sub : '') . '/_partials';
 
             if (is_dir($try)) {
@@ -42,7 +43,7 @@ class Template
         }
     }
 
-    private function includePartialView(string $partialView)
+    private function includePartialView(string $partialView): void
     {
         $file_path = self::$partialsPath . $partialView;
         if (!file_exists($file_path)) {
@@ -90,7 +91,7 @@ class Template
         self::includePartialView('/_footer.php');
     }
 
-    public function apply(array $data = [])
+    public function apply(array $data = []): void
     {
         if (self::$jsonMode) {
             return;

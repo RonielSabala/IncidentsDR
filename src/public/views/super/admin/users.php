@@ -1,6 +1,7 @@
 <?php
 
 use App\Utils\GeneralUtils;
+
 ?>
 
 <div class="row mb-4">
@@ -20,20 +21,20 @@ use App\Utils\GeneralUtils;
                     <div class="col-12">
                         <label for="user_id" class="form-label required">Selecciona un usuario</label>
                         <select id="user_id" name="user_id" class="form-select" required>
-                            <?php foreach ($users as $user): ?>
+                            <?php foreach ($users as $user) { ?>
                                 <option
-                                    value="<?= htmlspecialchars($user['id']) ?>"
-                                    data-email="<?= htmlspecialchars($user['email']) ?>"
-                                    data-roles="<?= htmlspecialchars($user['roles']) ?>"
-                                    <?= ($user['id'] == $default_user) ? 'selected' : '' ?>>
-                                    <?= htmlspecialchars($user['username']) ?> — <?= htmlspecialchars($user['email']) ?>
+                                    value="<?= htmlspecialchars($user['id']); ?>"
+                                    data-email="<?= htmlspecialchars($user['email']); ?>"
+                                    data-roles="<?= htmlspecialchars($user['roles']); ?>"
+                                    <?= ($user['id'] === $default_user) ? 'selected' : ''; ?>>
+                                    <?= htmlspecialchars($user['username']); ?> — <?= htmlspecialchars($user['email']); ?>
                                 </option>
-                            <?php endforeach; ?>
+                            <?php } ?>
                         </select>
 
                         <!-- Mensaje si no hay usuarios -->
                         <div class="mt-2">
-                            <?= GeneralUtils::showNoData($users, "usuarios"); ?>
+                            <?= GeneralUtils::showNoData($users, 'usuarios'); ?>
                         </div>
                     </div>
 
@@ -41,11 +42,11 @@ use App\Utils\GeneralUtils;
                     <div class="col-md-8">
                         <label for="role_id" class="form-label required">Asignar nuevo rol</label>
                         <select id="role_id" name="role_id" class="form-select" required>
-                            <?php foreach ($roles as $role): ?>
-                                <option value="<?= htmlspecialchars($role['id']) ?>" <?= ($role['id'] == $default_role) ? 'selected' : '' ?>>
-                                    <?= htmlspecialchars($role['role_name']) ?>
+                            <?php foreach ($roles as $role) { ?>
+                                <option value="<?= htmlspecialchars($role['id']); ?>" <?= ($role['id'] === $default_role) ? 'selected' : ''; ?>>
+                                    <?= htmlspecialchars($role['role_name']); ?>
                                 </option>
-                            <?php endforeach; ?>
+                            <?php } ?>
                         </select>
                     </div>
 
@@ -58,7 +59,7 @@ use App\Utils\GeneralUtils;
 
                     <!-- Mensaje si no hay roles -->
                     <div class="col-12">
-                        <?= GeneralUtils::showNoData($roles, "roles"); ?>
+                        <?= GeneralUtils::showNoData($roles, 'roles'); ?>
                     </div>
                 </form>
             </div>

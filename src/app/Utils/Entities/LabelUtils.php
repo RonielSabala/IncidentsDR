@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Utils\Entities;
+declare(strict_types=1);
 
+namespace App\Utils\Entities;
 
 class LabelUtils extends GenericEntityUtils
 {
-    private static $getSql = "SELECT * FROM labels WHERE id = ?";
+    private static $getSql = 'SELECT * FROM labels WHERE id = ?';
 
-    private static $getByNameSql = "SELECT * FROM labels WHERE label_name = ?";
+    private static $getByNameSql = 'SELECT * FROM labels WHERE label_name = ?';
 
-    private static $getAllSql = "SELECT * FROM labels";
+    private static $getAllSql = 'SELECT * FROM labels';
 
-    private static $getAllByIncidenceIdSql = "SELECT
+    private static $getAllByIncidenceIdSql = 'SELECT
         l.label_name
     FROM
         labels l
@@ -23,13 +24,13 @@ class LabelUtils extends GenericEntityUtils
         il.incidence_id = ?
     ORDER BY
         l.label_name
-    ";
+    ';
 
-    private static $createSql = "INSERT INTO labels (label_name, icon_url) VALUES (?, ?)";
+    private static $createSql = 'INSERT INTO labels (label_name, icon_url) VALUES (?, ?)';
 
-    private static $updateSql = "UPDATE labels SET label_name = ?, icon_url = ? WHERE id = ?";
+    private static $updateSql = 'UPDATE labels SET label_name = ?, icon_url = ? WHERE id = ?';
 
-    private static $deleteSql = "DELETE FROM labels WHERE id = ?";
+    private static $deleteSql = 'DELETE FROM labels WHERE id = ?';
 
     public static function get($id)
     {

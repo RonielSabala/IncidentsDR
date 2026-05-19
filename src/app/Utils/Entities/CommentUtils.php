@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Utils\Entities;
+declare(strict_types=1);
 
+namespace App\Utils\Entities;
 
 class CommentUtils extends GenericEntityUtils
 {
-    private static $getAllByIncidenceIdSql = "SELECT
+    private static $getAllByIncidenceIdSql = 'SELECT
         u.username,
         c.id,
         c.user_id,
@@ -22,9 +23,9 @@ class CommentUtils extends GenericEntityUtils
     ORDER BY
         c.creation_date
     DESC
-    ";
+    ';
 
-    private static $createSql = "INSERT INTO
+    private static $createSql = 'INSERT INTO
     comments (
         incidence_id,
         user_id,
@@ -32,13 +33,13 @@ class CommentUtils extends GenericEntityUtils
     )
     VALUES
         (?, ?, ?)
-    ";
+    ';
 
-    private static $deleteSql = "DELETE FROM
+    private static $deleteSql = 'DELETE FROM
         comments c
     WHERE
         c.id = ?
-    ";
+    ';
 
     public static function getAllByIncidenceId($incidenceId): array
     {

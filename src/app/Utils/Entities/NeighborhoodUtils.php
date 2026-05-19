@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Utils\Entities;
+declare(strict_types=1);
 
+namespace App\Utils\Entities;
 
 class NeighborhoodUtils extends GenericEntityUtils
 {
-    private static $getSql = "SELECT * FROM neighborhoods WHERE id = ?";
+    private static $getSql = 'SELECT * FROM neighborhoods WHERE id = ?';
 
-    private static $getAllSql = "SELECT
+    private static $getAllSql = 'SELECT
         n.*,
         m.municipality_name
     FROM
@@ -18,15 +19,15 @@ class NeighborhoodUtils extends GenericEntityUtils
         m.id = n.municipality_id
     ORDER BY
         neighborhood_name
-    ";
+    ';
 
-    private static $getAllByMunicipalityIdSql = "SELECT id, neighborhood_name FROM neighborhoods WHERE municipality_id = ?";
+    private static $getAllByMunicipalityIdSql = 'SELECT id, neighborhood_name FROM neighborhoods WHERE municipality_id = ?';
 
-    private static $createSql = "INSERT INTO neighborhoods (neighborhood_name, municipality_id) VALUES (?, ?)";
+    private static $createSql = 'INSERT INTO neighborhoods (neighborhood_name, municipality_id) VALUES (?, ?)';
 
-    private static $updateSql = "UPDATE neighborhoods SET neighborhood_name = ?, municipality_id = ? WHERE id = ?";
+    private static $updateSql = 'UPDATE neighborhoods SET neighborhood_name = ?, municipality_id = ? WHERE id = ?';
 
-    private static $deleteSql = "DELETE FROM neighborhoods WHERE id = ?";
+    private static $deleteSql = 'DELETE FROM neighborhoods WHERE id = ?';
 
     public static function get($id)
     {

@@ -1,8 +1,8 @@
 <?php
 
-use App\Utils\PrintUtils;
+use App\Utils\{GeneralUtils, PrintUtils};
 
-include_once('_partials/__header.php');
+include_once '_partials/__header.php';
 ?>
 
 <!-- Lista de incidencias -->
@@ -17,34 +17,34 @@ include_once('_partials/__header.php');
         </tr>
     </thead>
     <tbody id="incidents-tbody">
-        <?php foreach ($incidents as $incidence): ?>
+        <?php foreach ($incidents as $incidence) { ?>
             <tr class="incidence-row"
-                data-id="<?= $incidence['id'] ?>"
-                data-title="<?= strtolower($incidence['title']) ?>"
-                data-province="<?= $incidence['province_id'] ?>"
-                data-date="<?= $incidence['creation_date'] ?>"
-                data-lat="<?= $incidence['latitude'] ?>"
-                data-lng="<?= $incidence['longitude'] ?>">
-                <td class="incidence-title"><?= $incidence['title'] ?></td>
-                <td class="incidence-desc"><?= PrintUtils::getPrintableText($incidence['incidence_description']) ?></td>
-                <td class="incidence-type"><?= implode(', ', $incidence['labels']) ?></td>
-                <td class="incidence-date"><?= PrintUtils::getPrintableDate($incidence['creation_date']) ?></td>
+                data-id="<?= $incidence['id']; ?>"
+                data-title="<?= strtolower($incidence['title']); ?>"
+                data-province="<?= $incidence['province_id']; ?>"
+                data-date="<?= $incidence['creation_date']; ?>"
+                data-lat="<?= $incidence['latitude']; ?>"
+                data-lng="<?= $incidence['longitude']; ?>">
+                <td class="incidence-title"><?= $incidence['title']; ?></td>
+                <td class="incidence-desc"><?= PrintUtils::getPrintableText($incidence['incidence_description']); ?></td>
+                <td class="incidence-type"><?= implode(', ', $incidence['labels']); ?></td>
+                <td class="incidence-date"><?= PrintUtils::getPrintableDate($incidence['creation_date']); ?></td>
                 <td>
                     <div class="d-flex justify-content-end gap-2 align-items-center">
                         <!-- Botón abrir modal -->
-                        <button type="button" class="btn btn-sm btn-outline-action btn-show-modal" data-id="<?= $incidence['id'] ?>" title="Ver detalles">
+                        <button type="button" class="btn btn-sm btn-outline-action btn-show-modal" data-id="<?= $incidence['id']; ?>" title="Ver detalles">
                             <i class="bi bi-info-circle"></i>
                         </button>
 
-                        <a href="incidence.php?id=<?= $incidence['id'] ?>" class="btn btn-sm btn-outline-action btn-go" title="Abrir en pantalla completa">
+                        <a href="incidence.php?id=<?= $incidence['id']; ?>" class="btn btn-sm btn-outline-action btn-go" title="Abrir en pantalla completa">
                             <i class="bi bi-box-arrow-up-right"></i>
                         </a>
 
                         <!-- Copiar coordenadas -->
                         <button type="button"
                             class="btn btn-sm btn-outline-action btn-copy-coords"
-                            data-lat="<?= $incidence['latitude'] ?>"
-                            data-lng="<?= $incidence['longitude'] ?>"
+                            data-lat="<?= $incidence['latitude']; ?>"
+                            data-lng="<?= $incidence['longitude']; ?>"
                             data-bs-toggle="tooltip"
                             data-bs-placement="top"
                             title="Copiar coordenadas">
@@ -53,11 +53,11 @@ include_once('_partials/__header.php');
                     </div>
                 </td>
             </tr>
-        <?php endforeach; ?>
+        <?php } ?>
     </tbody>
 </table>
 
 <?php
 
-App\Utils\GeneralUtils::showNoData($incidents, "incidentes");
-include_once('_partials/__footer.php');
+GeneralUtils::showNoData($incidents, 'incidentes');
+include_once '_partials/__footer.php';

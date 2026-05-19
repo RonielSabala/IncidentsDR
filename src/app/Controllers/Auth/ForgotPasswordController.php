@@ -1,20 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Auth;
 
 use App\Core\Template;
-use App\Utils\GeneralUtils;
-use App\Utils\Entities\UserUtils;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
+use App\Utils\{Entities\UserUtils, GeneralUtils};
+use PHPMailer\PHPMailer\{Exception, PHPMailer};
 
 class ForgotPasswordController
 {
     // Expiration time in seconds
     private static $code_expiration_time = 300;
 
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             $template->apply();
@@ -54,9 +53,9 @@ class ForgotPasswordController
             $mail->addAddress($email);
             $mail->isHTML(true);
             $mail->Subject = 'Code to reset your password';
-            $mail->Body = "Your code is: <b>{$reset_password_code}</b>. Valid for " . intval(self::$code_expiration_time / 60) . ' minutes.';
+            $mail->Body = "Your code is: <b>{$reset_password_code}</b>. Valid for " . (int) (self::$code_expiration_time / 60) . ' minutes.';
 
-            // Enviar código de recuperación y redirigir            
+            // Enviar código de recuperación y redirigir
             $mail->send();
             header('Location: reset_password.php');
         } catch (Exception $e) {

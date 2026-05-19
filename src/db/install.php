@@ -1,26 +1,27 @@
 <?php
+
+declare(strict_types=1);
 const BASE_PATH = __DIR__ . '/../';
 require_once BASE_PATH . 'vendor/autoload.php';
 require_once BASE_PATH . 'config/db.php';
 
-// Leer scripts SQL
-$creationFile = __DIR__ . '/creation.sql';
-$insertionsFile = __DIR__ . '/insertions.sql';
-$creationSql = file_get_contents($creationFile);
-$insertionsSql = file_get_contents($insertionsFile);
+function readSql(string $file): string
+{
+    $sql = file_get_contents($file);
+    if ($sql === false || $sql === '') {
+        exit("SQL file not found or not readable: {$file}");
+    }
 
-if (!$creationSql) {
-    die("No se pudo leer el archivo para crear la base de datos.");
+    return $sql;
 }
 
-if (!$insertionsSql) {
-    die("No se pudo leer el archivo para insertar los datos.");
-}
+$creationSql = readSql(__DIR__ . '/creation.sql');
+$insertionsSql = readSql(__DIR__ . '/insertions.sql');
 
 try {
-    // Crear tablas
-    $pdo = new PDO("mysql:host=$host", $user, $pass, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    // Create tables
+    $pdo = new \PDO("mysql:host={$host}", $user, $pass, [
+        \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
     ]);
 
     $statements = array_filter(array_map('trim', explode(';', $creationSql)));
@@ -30,20 +31,20 @@ try {
         }
     }
 
-    // Usar db
+    // Use DB
     if (!empty($db)) {
-        $pdo->exec("USE `$db`;");
+        $pdo->exec("USE `{$db}`;");
     }
 
-    // Insertar datos
+    // Insert data
     $insertStatements = array_filter(array_map('trim', explode(';', $insertionsSql)));
     foreach ($insertStatements as $stmt) {
         if (!empty($stmt)) {
             $pdo->exec($stmt);
         }
     }
-} catch (PDOException $e) {
-    die("Error de BD: " . $e->getMessage());
+} catch (\PDOException $e) {
+    exit('Database error: ' . $e->getMessage());
 }
 
-echo "✔️  Base de datos creada correctamente.\n";
+echo "\033[32mDatabase installed successfully!\033[0m";

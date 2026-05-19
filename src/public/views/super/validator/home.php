@@ -16,12 +16,12 @@ $userRole = UserUtils::getRoleByUserId($user['id']);
         <div>
             <h3 class="mb-0">Panel del validador</h3>
             <div class="muted-sm">
-                Bienvenido, <span class="welcome-name"><?= $username ?></span>! —
+                Bienvenido, <span class="welcome-name"><?= $username; ?></span>! —
                 Panel para gestionar las incidencias pendientes y sus correcciones.
             </div>
         </div>
         <div class="ms-auto text-end">
-            <span class="badge badge-accent px-3 py-2">Rol: <?= $userRole ?></span>
+            <span class="badge badge-accent px-3 py-2">Rol: <?= $userRole; ?></span>
         </div>
     </div>
 </div>
@@ -41,7 +41,7 @@ $userRole = UserUtils::getRoleByUserId($user['id']);
                 <div class="d-flex align-items-center">
                     <i class="bi bi-list-check me-3 fs-3" style="color:var(--accent-1)"></i>
                     <div>
-                        <div class="fw-semibold">Aprobar incidencias (<?= $pending_incidents_count ?> pendientes)</div>
+                        <div class="fw-semibold">Aprobar incidencias (<?= $pending_incidents_count; ?> pendientes)</div>
                         <div class="muted-sm">Aprobar o rechazar reportes</div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@ $userRole = UserUtils::getRoleByUserId($user['id']);
                 <div class="d-flex align-items-center">
                     <i class="bi bi-list-check me-3 fs-3" style="color:var(--accent-1)"></i>
                     <div>
-                        <div class="fw-semibold">Aprobar correcciones (<?= $pending_corrections_count ?> pendientes)</div>
+                        <div class="fw-semibold">Aprobar correcciones (<?= $pending_corrections_count; ?> pendientes)</div>
                         <div class="muted-sm">Aprobar o rechazar correcciones</div>
                     </div>
                 </div>

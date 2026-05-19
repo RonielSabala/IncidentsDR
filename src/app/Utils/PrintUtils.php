@@ -1,9 +1,8 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Utils;
-
-use DateTime;
-
 
 class PrintUtils
 {
@@ -16,7 +15,9 @@ class PrintUtils
 
     public static function getPrintableText(string $text): string
     {
-        if ($text === '') return '';
+        if ($text === '') {
+            return '';
+        }
 
         $lastPos = 0;
         $out = '';
@@ -29,7 +30,7 @@ class PrintUtils
 
         foreach ($matches as $m) {
             $matchText = $m[0][0];
-            $matchPos  = $m[0][1];
+            $matchPos = $m[0][1];
             if ($matchPos > $lastPos) {
                 $chunk = substr($subject, $lastPos, $matchPos - $lastPos);
                 $chunk = trim($chunk);
@@ -44,7 +45,7 @@ class PrintUtils
                 $href = $url;
             } elseif (!empty($m['url'][0])) {
                 $raw = $m['url'][0];
-                if (stripos($raw, 'www.') === 0) {
+                if (str_starts_with(strtolower($raw), strtolower('www.'))) {
                     $href = 'https://' . $raw;
                 } else {
                     $href = $raw;
@@ -58,12 +59,12 @@ class PrintUtils
 
             $esc_label = $label;
             $esc_href = $href;
-            $target = (stripos($href, 'mailto:') === 0) ? '' : ' target="_blank" rel="noopener noreferrer"';
+            $target = (str_starts_with(strtolower($href), strtolower('mailto:'))) ? '' : ' target="_blank" rel="noopener noreferrer"';
             $out .= '<a class="description-link" href="' . $esc_href . '"' . $target . '>' . $esc_label . '</a>';
-            $lastPos = $matchPos + strlen($matchText);
+            $lastPos = $matchPos + \strlen($matchText);
         }
 
-        if ($lastPos < strlen($subject)) {
+        if ($lastPos < \strlen($subject)) {
             $tail = substr($subject, $lastPos);
             if (trim($tail) !== '') {
                 $out .= '<p class="desc-text-run">' . nl2br(htmlspecialchars($tail, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')) . '</p>';
@@ -79,44 +80,42 @@ class PrintUtils
             return 'N/A';
         }
 
-        return (new DateTime($date))->format('d/m/Y H:i');
+        return (new \DateTime($date))->format('d/m/Y H:i');
     }
 
     public static function getPrintableJson(string $json_string): string
     {
         $data = json_decode($json_string, true);
-        $prettify_key = function ($k) {
-            return ucwords(str_replace(['_', '-'], [' ', ' '], $k));
-        };
+        $prettify_key = static fn ($k) => ucwords(str_replace(['_', '-'], [' ', ' '], $k));
 
         $html = '<div class="json-blob"><div class="card"><dl>';
         foreach ($data as $key => $value) {
             $html .= '<dt>' . htmlspecialchars($prettify_key($key)) . '</dt>';
             $html .= '<dd>';
-            if (is_array($value)) {
-                $is_assoc = array_keys($value) !== range(0, count($value) - 1);
+            if (\is_array($value)) {
+                $is_assoc = array_keys($value) !== range(0, \count($value) - 1);
                 if ($is_assoc) {
                     $html .= '<div class="mono small">' . htmlspecialchars(json_encode($value, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)) . '</div>';
                 } else {
                     foreach ($value as $item) {
-                        if (is_array($item)) {
+                        if (\is_array($item)) {
                             $html .= '<span class="badge">' . htmlspecialchars(json_encode($item, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)) . '</span>';
                         } else {
-                            $html .= '<span class="badge">' . htmlspecialchars((string)$item) . '</span>';
+                            $html .= '<span class="badge">' . htmlspecialchars((string) $item) . '</span>';
                         }
                     }
                 }
-            } elseif (is_bool($value)) {
+            } elseif (\is_bool($value)) {
                 $html .= '<span class="mono">' . ($value ? 'true' : 'false') . '</span>';
-            } elseif (is_string($value) && preg_match('~^https?://~i', $value)) {
+            } elseif (\is_string($value) && preg_match('~^https?://~i', $value)) {
                 $safe = htmlspecialchars($value);
                 $html .= '<a href="' . $safe . '" target="_blank" rel="noopener noreferrer">Ver enlace</a>';
-            } elseif (is_string($value) && mb_strlen($value) > 120) {
+            } elseif (\is_string($value) && mb_strlen($value) > 120) {
                 $html .= '<div class="long small">' . nl2br(htmlspecialchars($value)) . '</div>';
-            } elseif (is_int($value) || is_float($value)) {
-                $html .= '<span class="mono">' . htmlspecialchars((string)$value) . '</span>';
+            } elseif (\is_int($value) || \is_float($value)) {
+                $html .= '<span class="mono">' . htmlspecialchars((string) $value) . '</span>';
             } else {
-                $html .= '<span class="mono">' . htmlspecialchars((string)$value) . '</span>';
+                $html .= '<span class="mono">' . htmlspecialchars((string) $value) . '</span>';
             }
 
             $html .= '</dd>';

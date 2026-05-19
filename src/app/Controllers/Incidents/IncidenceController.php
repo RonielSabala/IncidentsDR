@@ -1,17 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Incidents;
 
 use App\Core\Template;
-use App\Utils\GeneralUtils;
-use App\Utils\Entities\IncidenceUtils;
-use App\Utils\Entities\CommentUtils;
-use App\Utils\Entities\LabelUtils;
-
+use App\Utils\{
+    Entities\CommentUtils,
+    Entities\IncidenceUtils,
+    Entities\LabelUtils,
+    GeneralUtils
+};
 
 class IncidenceController
 {
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
         if (!isset($_GET['id'])) {
             GeneralUtils::showAlert('No se especificó la incidencia.');
@@ -33,7 +36,7 @@ class IncidenceController
                 $comment_text = trim($_POST['comment_text']);
                 CommentUtils::create($comment_text, $user_id, $incidence_id);
             } elseif ($action === 'DELETE') {
-                $comment_id =  $_POST['comment_id'];
+                $comment_id = $_POST['comment_id'];
                 CommentUtils::delete($comment_id);
             }
         }

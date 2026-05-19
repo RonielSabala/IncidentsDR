@@ -49,8 +49,14 @@ body {
 }
 
 .page-card .card-body {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial;
   padding: 1.5rem;
 }
 
@@ -62,7 +68,9 @@ body {
   border-radius: 12px;
   font-weight: 600;
   padding: 0.6rem 0.8rem;
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
 }
 
 .btn-social:hover {
@@ -80,7 +88,10 @@ body {
   background: linear-gradient(180deg, #0078d4, #005ea6);
   color: #ffffff;
   border: none;
-  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.12s ease;
 }
 
 #btn-google:hover {
@@ -118,7 +129,9 @@ body {
   border-radius: 12px;
   padding: 0.75rem 1rem;
   border: 1px solid #d0d7de;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .form-control:focus {

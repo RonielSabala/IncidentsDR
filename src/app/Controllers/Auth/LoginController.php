@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Auth;
 
 use App\Core\Template;
-use App\Utils\OAuthUtils;
-use App\Utils\GeneralUtils;
-use App\Utils\Entities\UserUtils;
-
+use App\Utils\{Entities\UserUtils, GeneralUtils, OAuthUtils};
 
 class LoginController
 {
@@ -84,7 +83,7 @@ class LoginController
         return true;
     }
 
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
         $response = self::logUser();
 
@@ -97,7 +96,7 @@ class LoginController
             'google_auth_url' => OAuthUtils::getGoogleUrl(),
         ]);
 
-        if (is_string($response) && !empty($response)) {
+        if (\is_string($response) && !empty($response)) {
             GeneralUtils::showAlert($response, showReturn: false);
         }
     }

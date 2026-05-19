@@ -1,19 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\Incidents;
 
 use App\Core\Template;
-use App\Utils\GeneralUtils;
-use App\Utils\Entities\ProvinceUtils;
-use App\Utils\Entities\IncidenceUtils;
-use App\Utils\Entities\CorrectionUtils;
-use App\Utils\Entities\MunicipalityUtils;
-use App\Utils\Entities\NeighborhoodUtils;
-
+use App\Utils\{
+    Entities\CorrectionUtils,
+    Entities\IncidenceUtils,
+    Entities\MunicipalityUtils,
+    Entities\NeighborhoodUtils,
+    Entities\ProvinceUtils,
+    GeneralUtils
+};
 
 class CorrectionController
 {
-    public function handle(Template $template)
+    public function handle(Template $template): void
     {
         // Manejar peticiones por GET
         if (($_GET['action'] ?? '') === 'GET') {
@@ -31,7 +34,6 @@ class CorrectionController
             if (!empty($municipalityId)) {
                 $data = NeighborhoodUtils::getAllByMunicipalityId($municipalityId);
             }
-
 
             echo json_encode($data, JSON_UNESCAPED_UNICODE);
             exit;
@@ -106,7 +108,7 @@ class CorrectionController
             GeneralUtils::showAlert('Error al crear la corrección', showReturn: false);
         }
 
-        // Llenar el formulario 
+        // Llenar el formulario
         $template->apply([
             'incidence' => $incidence,
             'provinces' => ProvinceUtils::getAll(),
@@ -121,19 +123,19 @@ class CorrectionController
     {
         // Mapeamos $original a las mismas claves que $correction
         $originalMapped = [
-            'n_deaths'        => (string)($original['n_deaths'] ?? ''),
-            'n_injured'       => (string)($original['n_injured'] ?? ''),
-            'n_losses'        => (string)($original['n_losses'] ?? ''),
-            'latitude'        => trim((string)($original['latitude'] ?? '')),
-            'longitude'       => trim((string)($original['longitude'] ?? '')),
-            'province_id'     => (string)($original['province_id'] ?? ''),
-            'municipality_id' => (string)($original['municipality_id'] ?? ''),
-            'neighborhood_id' => (string)($original['neighborhood_id'] ?? ''),
+            'n_deaths' => (string) ($original['n_deaths'] ?? ''),
+            'n_injured' => (string) ($original['n_injured'] ?? ''),
+            'n_losses' => (string) ($original['n_losses'] ?? ''),
+            'latitude' => trim((string) ($original['latitude'] ?? '')),
+            'longitude' => trim((string) ($original['longitude'] ?? '')),
+            'province_id' => (string) ($original['province_id'] ?? ''),
+            'municipality_id' => (string) ($original['municipality_id'] ?? ''),
+            'neighborhood_id' => (string) ($original['neighborhood_id'] ?? ''),
         ];
 
         // Comparar campos
         foreach ($originalMapped as $key => $value) {
-            if ((string)$value !== (string)($correction[$key] ?? '')) {
+            if ((string) $value !== (string) ($correction[$key] ?? '')) {
                 return true;
             }
         }

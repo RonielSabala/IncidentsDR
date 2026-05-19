@@ -79,9 +79,9 @@ function setDefaultDate() {
 function showModal(currentRoute, id) {
   // Obtener datos de la incidencia
   $.getJSON(currentRoute, {
-    action: "GET",
-    incidence_id: id,
-  })
+      action: "GET",
+      incidence_id: id,
+    })
     .done(function (modalHtml) {
       $("#modalBody").html(modalHtml);
       $("#btnGoToIncidencePage").attr("href", `incidence.php?id=${id}`);
@@ -111,7 +111,9 @@ function initCarousel($document) {
       let offset =
         $slides.eq(index).position().left +
         $container.find(".slider").scrollLeft();
-      $container.find(".slider").animate({ scrollLeft: offset }, 300);
+      $container.find(".slider").animate({
+        scrollLeft: offset
+      }, 300);
 
       $dots.removeClass("active").eq(index).addClass("active");
     }

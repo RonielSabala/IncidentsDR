@@ -20,7 +20,7 @@
                         </div>
                         <div class="field-item">
                             <label class="field-label">Ícono</label>
-                            <img src="<?= htmlspecialchars($label['icon_url']) ?>" alt="etiqueta" style="width: 150px;">
+                            <img src="<?= htmlspecialchars($label['icon_url']); ?>" alt="etiqueta" style="width: 150px;">
                         </div>
                     </div>
                 </dl>

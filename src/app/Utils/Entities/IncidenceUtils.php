@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Utils\Entities;
+declare(strict_types=1);
 
+namespace App\Utils\Entities;
 
 class IncidenceUtils extends GenericEntityUtils
 {
-    private static $getSql = "SELECT 
+    private static $getSql = 'SELECT
         i.*,
         u.id as reporter_id,
         u.username as reporter_name,
@@ -35,9 +36,9 @@ class IncidenceUtils extends GenericEntityUtils
         i.id = ?
     GROUP BY
         i.id
-    ";
+    ';
 
-    private static $getAllApprovedSql = "SELECT
+    private static $getAllApprovedSql = 'SELECT
         i.*,
         GROUP_CONCAT(l.label_name) AS labels,
         GROUP_CONCAT(l.icon_url) AS label_icons
@@ -55,9 +56,9 @@ class IncidenceUtils extends GenericEntityUtils
         i.is_approved = 1
     GROUP BY
         i.id
-    ";
+    ';
 
-    private static $getAllPendingSql = "SELECT 
+    private static $getAllPendingSql = 'SELECT
         i.id,
         i.title,
         i.incidence_description,
@@ -85,9 +86,9 @@ class IncidenceUtils extends GenericEntityUtils
     ORDER BY
         i.creation_date
     DESC
-    ";
+    ';
 
-    private static $getAllByReporterIdSql = "SELECT
+    private static $getAllByReporterIdSql = 'SELECT
         i.id,
         i.title,
         i.incidence_description,
@@ -124,9 +125,9 @@ class IncidenceUtils extends GenericEntityUtils
     ORDER BY
         i.creation_date
     DESC
-    ";
+    ';
 
-    private static $createSql = "INSERT INTO
+    private static $createSql = 'INSERT INTO
     incidents (
         title,
         incidence_description,
@@ -143,10 +144,10 @@ class IncidenceUtils extends GenericEntityUtils
     )
     VALUES
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    ";
+    ';
 
-    private static $updateSql = "UPDATE
-        incidents  
+    private static $updateSql = 'UPDATE
+        incidents
     SET
         title = ?,
         incidence_description = ?,
@@ -160,17 +161,17 @@ class IncidenceUtils extends GenericEntityUtils
         municipality_id = ?,
         neighborhood_id = ?,
         user_id = ?
-    WHERE  
+    WHERE
         id = ?
-    ";
+    ';
 
-    private static $deleteSql = "DELETE FROM incidents WHERE id = ?";
+    private static $deleteSql = 'DELETE FROM incidents WHERE id = ?';
 
-    private static $createLabelRelationSql = "INSERT INTO incidence_labels (incidence_id, label_id) VALUES (?, ?)";
+    private static $createLabelRelationSql = 'INSERT INTO incidence_labels (incidence_id, label_id) VALUES (?, ?)';
 
-    private static $deleteLabelRelationsSql = "DELETE FROM incidence_labels WHERE incidence_id = ?";
+    private static $deleteLabelRelationsSql = 'DELETE FROM incidence_labels WHERE incidence_id = ?';
 
-    private static $setApprovalSql = "UPDATE incidents SET is_approved = 1 WHERE id = ?";
+    private static $setApprovalSql = 'UPDATE incidents SET is_approved = 1 WHERE id = ?';
 
     public static function get($id)
     {
@@ -180,7 +181,7 @@ class IncidenceUtils extends GenericEntityUtils
     public static function getAllApproved(): array
     {
         $incidents = self::fetchAllSql(self::$getAllApprovedSql);
-        return array_map(function ($incidence) {
+        return array_map(static function ($incidence) {
             $incidence['labels'] = !empty($incidence['labels'])
                 ? explode(',', $incidence['labels'])
                 : [];
@@ -201,7 +202,7 @@ class IncidenceUtils extends GenericEntityUtils
         return self::fetchAllSql(self::$getAllByReporterIdSql, [$reporterId]);
     }
 
-    public static function create($fields, $photoUrl, $labels)
+    public static function create($fields, $photoUrl, $labels): void
     {
         global $pdo;
 
@@ -211,7 +212,7 @@ class IncidenceUtils extends GenericEntityUtils
 
         // Insertar imagen
         if (!empty($photoUrl)) {
-            if (is_array($photoUrl)) {
+            if (\is_array($photoUrl)) {
                 foreach ($photoUrl as $url) {
                     PhotoUtils::create([$incidenceId, $url]);
                 }
@@ -226,16 +227,15 @@ class IncidenceUtils extends GenericEntityUtils
         }
     }
 
-    public static function update($incidenceId, $fields, $photoUrl, $labels)
+    public static function update($incidenceId, $fields, $photoUrl, $labels): void
     {
-
         $fields[] = $incidenceId;
         self::executeSql(self::$updateSql, $fields);
 
         // Eliminamos fotos existentes y agregamos nuevas
         PhotoUtils::deleteByIncidenceId($incidenceId);
         if (!empty($photoUrl)) {
-            foreach ((array)$photoUrl as $url) {
+            foreach ((array) $photoUrl as $url) {
                 PhotoUtils::create([$incidenceId, $url]);
             }
         }
